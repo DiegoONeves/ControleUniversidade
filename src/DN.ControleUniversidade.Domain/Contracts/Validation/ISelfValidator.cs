@@ -1,0 +1,10 @@
+﻿using DN.ControleUniversidade.Domain.ValueObjects;
+
+namespace DN.ControleUniversidade.Domain.Contracts.Validation
+{
+    public interface ISelfValidator
+    {
+        ValidationResult ResultadoValidacao { get; }
+        bool IsValid { get; }
+    }
+}
