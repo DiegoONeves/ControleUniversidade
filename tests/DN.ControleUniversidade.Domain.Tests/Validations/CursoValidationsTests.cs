@@ -14,12 +14,19 @@ namespace DN.ControleUniversidade.Domain.Tests.Validations
     [TestClass]
     public class CursoValidationsTests
     {
+        TipoCurso tipoCurso;
+
+        [TestInitialize]
+        public void IniciarTeste()
+        {
+            tipoCurso = new TipoCurso("Tecnólogo", true);
+        }
 
         [TestMethod]
         [TestCategory("Validations - Curso")]
         public void Um_Curso_Deve_Ser_Unico_No_Banco_De_Dados()
         {
-            var curso = new Curso("Análise de Sistemas");
+            var curso = new Curso("Análise de Sistemas", true, tipoCurso);
 
             var stubRepo = MockRepository.GenerateStub<ICursoRepository>();
             stubRepo.Stub(x => x.ObterPorDescricao("Análise de Sistemas")).Return(curso);
@@ -35,8 +42,8 @@ namespace DN.ControleUniversidade.Domain.Tests.Validations
         [TestCategory("Validations - Curso")]
         public void Para_Atualizar_Um_Curso_Deve_Ter_Descricao_Diferente_Se_For_Ids_Diferentes()
         {
-            var cursoParaAtualizar = new Curso("Análise de Sistemas");
-            var cursoJaCadastrado = new Curso("Análise de Sistemas");
+            var cursoParaAtualizar = new Curso("Análise de Sistemas", true, tipoCurso);
+            var cursoJaCadastrado = new Curso("Análise de Sistemas", true, tipoCurso);
 
             var stubRepo = MockRepository.GenerateStub<ICursoRepository>();
             stubRepo.Stub(x => x.ObterPorDescricao("Análise de Sistemas")).Return(cursoJaCadastrado);

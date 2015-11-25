@@ -11,9 +11,11 @@ namespace DN.ControleUniversidade.Presentation.Mvc.Controllers
     public class CursoController : Controller
     {
         private readonly ICursoAppService _cursoApp;
-        public CursoController(ICursoAppService cursoApp)
+        private readonly ITipoCursoAppService _tipoCursoApp;
+        public CursoController(ICursoAppService cursoApp, ITipoCursoAppService tipoCursoApp)
         {
             _cursoApp = cursoApp;
+            _tipoCursoApp = tipoCursoApp;
         }
         // GET: Curso
         public ActionResult Index()
@@ -22,18 +24,32 @@ namespace DN.ControleUniversidade.Presentation.Mvc.Controllers
             return View(cursos);
         }
 
+        [OutputCache(Duration = 300, VaryByParam = "none")]
+        [NonAction]
+        private IEnumerable<SelectListItem> PreencherTipoCurso()
+        {
+            return _tipoCursoApp.ObterTodos()
+            .Select(x => new SelectListItem
+            {
+                Text = x.Descricao,
+                Value = x.TipoCursoId.ToString()
+            });
+        }
+
         public ActionResult Cadastrar()
         {
-            return View();
+            var model = new CursoViewModel();
+            model.TiposCurso = PreencherTipoCurso();
+            return View(model);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Cadastrar(CursoViewModel curso)
+        public ActionResult Cadastrar(CursoViewModel model)
         {
             if (ModelState.IsValid)
             {
-                var validationAppResult = _cursoApp.AdicionarNovoCurso(curso);
+                var validationAppResult = _cursoApp.AdicionarNovoCurso(model);
 
                 foreach (var item in validationAppResult.Erros)
                     ModelState.AddModelError("", item.Message);
@@ -41,7 +57,9 @@ namespace DN.ControleUniversidade.Presentation.Mvc.Controllers
                 if (validationAppResult.Erros.Count == 0)
                     return RedirectToAction("Index");
             }
-            return View(curso);
+
+            model.TiposCurso = PreencherTipoCurso();
+            return View(model);
         }
 
         public ActionResult Editar(Guid cursoId)

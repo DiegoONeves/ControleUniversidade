@@ -15,14 +15,17 @@ namespace DN.ControleUniversidade.Application
     public class CursoAppService : AppServiceBase<UniversidadeContext>, ICursoAppService
     {
         private readonly ICursoService _cursoService;
+        private readonly ITipoCursoService _tipoCursoService;
 
-        public CursoAppService(ICursoService cursoService)
+        public CursoAppService(ICursoService cursoService, ITipoCursoService tipoCursoService)
         {
             _cursoService = cursoService;
+            _tipoCursoService = tipoCursoService;
         }
         public ValidationAppResult AdicionarNovoCurso(CursoViewModel cursoViewModel)
         {
-            var cursoDomain = CursoMapper.CursoViewModelParaCursoDomain(cursoViewModel);
+            var tipoCursoDb = _tipoCursoService.ObterPorId(cursoViewModel.TipoCursoId);
+            var cursoDomain = CursoMapper.CursoViewModelParaCursoDomain(cursoViewModel, tipoCursoDb);
 
             BeginTransaction();
 
@@ -58,7 +61,9 @@ namespace DN.ControleUniversidade.Application
         public ValidationAppResult AtualizarCurso(CursoViewModel cursoViewModel)
         {
             BeginTransaction();
-            var validationAppResult = DomainToApplicationResult(_cursoService.AtualizarCurso(cursoViewModel.CursoId, cursoViewModel.Descricao));
+            var cursoDomain = CursoMapper.CursoViewModelParaCursoDomain(cursoViewModel, null);
+
+            var validationAppResult = DomainToApplicationResult(_cursoService.AtualizarCurso(cursoDomain));
 
             if (validationAppResult.IsValid)
                 Commit();

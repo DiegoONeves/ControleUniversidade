@@ -15,7 +15,8 @@ namespace DN.ControleUniversidade.Domain.Tests.Entities
         public void DescricaoDeveTerEntre5e50Caracteres() 
         {
             string validacaoEsperada = "A descrição deve conter entre 5 e 50 caracteres";
-            var curso = new Curso("mater");
+            var tipoCurso = new TipoCurso("Tecnólogo", true);
+            var curso = new Curso("mater", true, tipoCurso);
 
 
             string validacaoQuebrada = curso.ResultadoValidacao.Erros.FirstOrDefault(x => x.Message == validacaoEsperada).Message;
@@ -28,10 +29,11 @@ namespace DN.ControleUniversidade.Domain.Tests.Entities
         [TestCategory("Entity - Curso")]
         public void Na_Atualizacao_Do_Curso_Deve_Alterar_DataAtualizacao()
         {
-            var curso = new Curso("Ciências da Computação");
+            var tipoCurso = new TipoCurso("Tecnólogo", true);
+            var curso = new Curso("Ciências da Computação", true, tipoCurso);
             DateTime dataAtuzalicaoCriacao = curso.DataAtualizacao;
             System.Threading.Thread.Sleep(2000);
-            curso.AtualizarCurso("Novo Nome de Curso");
+            curso.AtualizarCurso("Novo Nome de Curso", true, tipoCurso);
 
             Assert.IsTrue(dataAtuzalicaoCriacao != curso.DataAtualizacao);
         }

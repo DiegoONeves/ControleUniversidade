@@ -20,15 +20,16 @@ namespace DN.ControleUniversidade.Application.Mapper
                 cursoVm.Descricao = item.Descricao;
                 cursoVm.DataCadastro = item.DataCadastro;
                 cursoVm.DataAtualizacao = item.DataAtualizacao;
+                cursoVm.Ativo = item.Ativo;
                 cursosViewModel.Add(cursoVm);
             }
 
             return cursosViewModel;
         }
 
-        public static Curso CursoViewModelParaCursoDomain(CursoViewModel cursoViewModel)
+        public static Curso CursoViewModelParaCursoDomain(CursoViewModel cursoViewModel, TipoCurso tipoCurso)
         {
-             return new Curso(cursoViewModel.Descricao);
+             return new Curso(cursoViewModel.Descricao, cursoViewModel.Ativo, tipoCurso);
         }
 
         public static CursoViewModel CursoDomainParaCursoViewModel(Curso curso)

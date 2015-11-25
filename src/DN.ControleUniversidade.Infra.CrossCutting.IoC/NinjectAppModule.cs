@@ -9,10 +9,11 @@ using System.Threading.Tasks;
 
 namespace DN.ControleUniversidade.Infra.CrossCutting.IoC
 {
-    public class NinjectAppModule : NinjectRepositoryModule
+    public class NinjectAppModule : NinjectModule
     {
         public override void Load()
         {
+            Bind<ITipoCursoAppService>().To<TipoCursoAppService>();
             Bind<ICursoAppService>().To<CursoAppService>();
         }
     }

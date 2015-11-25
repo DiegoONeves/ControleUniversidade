@@ -9,13 +9,17 @@ namespace DN.ControleUniversidade.Domain.Entities
     public class TipoCurso
     {
         protected TipoCurso()   {  }
-        public TipoCurso(string descricao)
+        public TipoCurso(string descricao, bool ativo)
         {
+            TipoCursoId = Guid.NewGuid();
             Descricao = descricao;
+            Ativo = ativo;
         }
 
-        public Guid TipoCursoId { get; set; }
-        public string Descricao { get; set; }
+        public Guid TipoCursoId { get; protected set; }
+        public string Descricao { get; protected set; }
+        public bool Ativo { get; protected set; }
+        public virtual ICollection<Curso> CursoLista { get; protected set; }
 
         public override string ToString()
         {

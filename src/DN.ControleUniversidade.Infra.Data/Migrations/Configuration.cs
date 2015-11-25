@@ -1,5 +1,6 @@
 namespace DN.ControleUniversidade.Infra.Data.Migrations
 {
+    using DN.ControleUniversidade.Domain.Entities;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
@@ -14,18 +15,13 @@ namespace DN.ControleUniversidade.Infra.Data.Migrations
 
         protected override void Seed(DN.ControleUniversidade.Infra.Data.Context.UniversidadeContext context)
         {
-            //  This method will be called after migrating to the latest version.
-
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            //  to avoid creating duplicate seed data. E.g.
-            //
-            //    context.People.AddOrUpdate(
-            //      p => p.FullName,
-            //      new Person { FullName = "Andrew Peters" },
-            //      new Person { FullName = "Brice Lambson" },
-            //      new Person { FullName = "Rowan Miller" }
-            //    );
-            //
+            if (!context.TiposCurso.Any(x => x.Descricao == "Bacharelado"))
+            {
+                context.TiposCurso.Add(new TipoCurso("Bacharelado", true));
+                context.TiposCurso.Add(new TipoCurso("Tecnológico", true));
+                context.TiposCurso.Add(new TipoCurso("Técnico", true));
+                context.SaveChanges();
+            }
         }
     }
 }

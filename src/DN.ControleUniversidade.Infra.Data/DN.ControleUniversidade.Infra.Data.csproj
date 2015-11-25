@@ -56,6 +56,7 @@
     <Compile Include="Context\ContextManager.cs" />
     <Compile Include="Context\UniversidadeContext.cs" />
     <Compile Include="EntityConfig\CursoConfiguration.cs" />
+    <Compile Include="EntityConfig\TipoCursoConfiguration.cs" />
     <Compile Include="Interfaces\IContextManager.cs" />
     <Compile Include="Interfaces\IDbContext.cs" />
     <Compile Include="Interfaces\IUnitOfWork.cs" />
@@ -63,6 +64,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\CursoRepository.cs" />
     <Compile Include="Repositories\RepositoryBase.cs" />
+    <Compile Include="Repositories\TipoCursoRepository.cs" />
     <Compile Include="UnitOfWork\UnitOfWork.cs" />
   </ItemGroup>
   <ItemGroup>

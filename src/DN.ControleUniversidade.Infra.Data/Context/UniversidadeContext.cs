@@ -41,6 +41,7 @@ namespace DN.ControleUniversidade.Infra.Data.Context
             modelBuilder.Properties<string>()
                 .Configure(p => p.HasMaxLength(100));
 
+            modelBuilder.Configurations.Add(new TipoCursoConfiguration());
             modelBuilder.Configurations.Add(new CursoConfiguration());
 
             base.OnModelCreating(modelBuilder);

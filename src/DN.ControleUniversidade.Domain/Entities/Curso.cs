@@ -10,13 +10,15 @@ namespace DN.ControleUniversidade.Domain.Entities
     {
         protected Curso() { }
 
-        public Curso(string descricao)
+        public Curso(string descricao, bool ativo, TipoCurso tipoCurso)
         {
             CursoId = Guid.NewGuid();
             Descricao = descricao;
-            Ativo = true;
+            TipoCurso = tipoCurso;
+            Ativo = ativo;
             DataCadastro = DateTime.Now;
             DataAtualizacao = DateTime.Now;
+
 
             var fiscal = new CursoEstaAptoParaCadastro();
             ResultadoValidacao = fiscal.Validar(this);
@@ -34,23 +36,15 @@ namespace DN.ControleUniversidade.Domain.Entities
             get { return ResultadoValidacao.IsValid; }
         }
 
-        public void AtualizarCurso(string descricao)
+        public void AtualizarCurso(string descricao, bool ativo, TipoCurso tipoCurso)
         {
             Descricao = descricao;
+            Ativo = ativo;
+            TipoCurso = tipoCurso;
             DataAtualizacao = DateTime.Now;
 
             var fiscal = new CursoEstaAptoParaAtualizacao();
             ResultadoValidacao = fiscal.Validar(this);
-        }
-
-        public void AtivarCurso()
-        {
-            Ativo = true;
-        }
-
-        public void DesativarCurso()
-        {
-            Ativo = false;
         }
 
     }

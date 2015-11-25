@@ -15,6 +15,10 @@ namespace DN.ControleUniversidade.Infra.Data.EntityConfig
 
             Property(x => x.DataCadastro).IsRequired();
 
+            HasRequired(x => x.TipoCurso)
+             .WithMany(x => x.CursoLista)
+              .Map(m => m.MapKey("TipoCursoId"));
+
             Ignore(x => x.ResultadoValidacao);
 
             ToTable("Curso");

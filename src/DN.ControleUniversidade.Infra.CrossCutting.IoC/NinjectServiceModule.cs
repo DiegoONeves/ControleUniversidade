@@ -8,6 +8,7 @@ namespace DN.ControleUniversidade.Infra.CrossCutting.IoC
     {
         public override void Load()
         {
+            Bind<ITipoCursoService>().To<TipoCursoService>();
             Bind<ICursoService>().To<CursoService>();
         }
     }

@@ -11,7 +11,7 @@ namespace DN.ControleUniversidade.Domain.Contracts.Services
     public interface ICursoService
     {
         ValidationResult AdicionarNovoCurso(Curso curso);
-        ValidationResult AtualizarCurso(Guid cursoId, string descricao);
+        ValidationResult AtualizarCurso(Curso curso);
         IEnumerable<Curso> ObterTodos();
         Curso ObterPorId(Guid cursoId);
         void Dispose();

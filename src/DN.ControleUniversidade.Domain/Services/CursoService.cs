@@ -59,12 +59,12 @@ namespace DN.ControleUniversidade.Domain.Services
         }
 
 
-        public ValidationResult AtualizarCurso(Guid cursoId, string descricao)
+        public ValidationResult AtualizarCurso(Curso curso)
         {
             var resultadoValidacao = new ValidationResult();
-            var cursoDb = _cursoRepository.GetById(cursoId);
+            var cursoDb = _cursoRepository.GetById(curso.CursoId);
 
-            cursoDb.AtualizarCurso(descricao);
+            cursoDb.AtualizarCurso(curso.Descricao, curso.Ativo, curso.TipoCurso);
 
             if (!cursoDb.IsValid)
             {

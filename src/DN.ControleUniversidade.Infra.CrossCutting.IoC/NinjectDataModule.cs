@@ -5,7 +5,7 @@ using Ninject.Modules;
 
 namespace DN.ControleUniversidade.Infra.CrossCutting.IoC
 {
-    public class NinjectDataModule: NinjectRepositoryModule
+    public class NinjectDataModule: NinjectModule
     {
         public override void Load()
         {
