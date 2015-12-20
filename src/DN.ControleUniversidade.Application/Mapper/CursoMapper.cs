@@ -29,7 +29,7 @@ namespace DN.ControleUniversidade.Application.Mapper
 
         public static Curso CursoViewModelParaCursoDomain(CursoViewModel cursoViewModel, TipoCurso tipoCurso)
         {
-             return new Curso(cursoViewModel.Descricao, cursoViewModel.Ativo, tipoCurso);
+             return new Curso(cursoViewModel.CursoId, cursoViewModel.Descricao, cursoViewModel.Ativo, tipoCurso);
         }
 
         public static CursoViewModel CursoDomainParaCursoViewModel(Curso curso)

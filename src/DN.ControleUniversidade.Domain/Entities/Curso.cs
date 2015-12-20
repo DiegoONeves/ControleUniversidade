@@ -23,6 +23,21 @@ namespace DN.ControleUniversidade.Domain.Entities
             var fiscal = new CursoEstaAptoParaCadastro();
             ResultadoValidacao = fiscal.Validar(this);
         }
+
+        public Curso(Guid id, string descricao, bool ativo, TipoCurso tipoCurso)
+        {
+            CursoId = id;
+            Descricao = descricao;
+            TipoCurso = tipoCurso;
+            Ativo = ativo;
+            DataCadastro = DateTime.Now;
+            DataAtualizacao = DateTime.Now;
+
+
+            var fiscal = new CursoEstaAptoParaCadastro();
+            ResultadoValidacao = fiscal.Validar(this);
+        }
+
         public Guid CursoId { get; protected set; }
         public string Descricao { get; protected set; }
         public bool Ativo { get; protected set; }
