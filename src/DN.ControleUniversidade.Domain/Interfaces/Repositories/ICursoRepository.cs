@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DN.ControleUniversidade.Domain.Contracts.Repositories
+namespace DN.ControleUniversidade.Domain.Interfaces.Repositories
 {
     public interface ICursoRepository : IRepositoryBase<Curso>
     {

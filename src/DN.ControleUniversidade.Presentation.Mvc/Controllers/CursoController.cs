@@ -10,17 +10,17 @@ namespace DN.ControleUniversidade.Presentation.Mvc.Controllers
 {
     public class CursoController : Controller
     {
-        private readonly ICursoAppService _cursoApp;
-        private readonly ITipoCursoAppService _tipoCursoApp;
-        public CursoController(ICursoAppService cursoApp, ITipoCursoAppService tipoCursoApp)
+        private readonly ICursoAppService _cursoAppService;
+        private readonly ITipoCursoAppService _tipoCursoAppService;
+        public CursoController(ICursoAppService cursoAppService, ITipoCursoAppService tipoCursoAppService)
         {
-            _cursoApp = cursoApp;
-            _tipoCursoApp = tipoCursoApp;
+            _cursoAppService = cursoAppService;
+            _tipoCursoAppService = tipoCursoAppService;
         }
         // GET: Curso
         public ActionResult Index()
         {
-            var cursos = _cursoApp.ObterTodos();
+            var cursos = _cursoAppService.ObterTodos();
             return View(cursos);
         }
 
@@ -28,7 +28,7 @@ namespace DN.ControleUniversidade.Presentation.Mvc.Controllers
         [NonAction]
         private IEnumerable<SelectListItem> PreencherTipoCurso()
         {
-            return _tipoCursoApp.ObterTodos()
+            return _tipoCursoAppService.ObterTodos()
             .Select(x => new SelectListItem
             {
                 Text = x.Descricao,
@@ -49,7 +49,7 @@ namespace DN.ControleUniversidade.Presentation.Mvc.Controllers
         {
             if (ModelState.IsValid)
             {
-                var validationAppResult = _cursoApp.AdicionarNovoCurso(model);
+                var validationAppResult = _cursoAppService.AdicionarNovoCurso(model);
 
                 foreach (var item in validationAppResult.Erros)
                     ModelState.AddModelError("", item.Message);
@@ -64,7 +64,7 @@ namespace DN.ControleUniversidade.Presentation.Mvc.Controllers
 
         public ActionResult Editar(Guid cursoId)
         {
-            var cursoParaEdicao = _cursoApp.ObterCursoPorId(cursoId);
+            var cursoParaEdicao = _cursoAppService.ObterCursoPorId(cursoId);
             return View(cursoParaEdicao);
         }
 
@@ -74,7 +74,7 @@ namespace DN.ControleUniversidade.Presentation.Mvc.Controllers
         {
             if (ModelState.IsValid)
             {
-                var validationAppResult = _cursoApp.AtualizarCurso(curso);
+                var validationAppResult = _cursoAppService.AtualizarCurso(curso);
 
                 foreach (var item in validationAppResult.Erros)
                     ModelState.AddModelError("", item.Message);

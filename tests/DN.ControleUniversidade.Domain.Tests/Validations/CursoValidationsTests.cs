@@ -4,9 +4,9 @@ using System.Text;
 using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Rhino.Mocks;
-using DN.ControleUniversidade.Domain.Contracts.Repositories;
+using DN.ControleUniversidade.Domain.Interfaces.Repositories;
 using DN.ControleUniversidade.Domain.Entities;
-using DN.ControleUniversidade.Domain.Validation.CursoValidations;
+using DN.ControleUniversidade.Domain.Validation.CursoValidation;
 
 namespace DN.ControleUniversidade.Domain.Tests.Validations
 {
@@ -31,7 +31,7 @@ namespace DN.ControleUniversidade.Domain.Tests.Validations
             var stubRepo = MockRepository.GenerateStub<ICursoRepository>();
             stubRepo.Stub(x => x.ObterPorDescricao("Análise de Sistemas")).Return(curso);
 
-            var cursoValidation = new CursoEstaConsistente(stubRepo);
+            var cursoValidation = new CursoEstaConsistenteValidation(stubRepo);
             var result = cursoValidation.Validar(curso);
 
             Assert.IsFalse(result.IsValid);
@@ -48,7 +48,7 @@ namespace DN.ControleUniversidade.Domain.Tests.Validations
             var stubRepo = MockRepository.GenerateStub<ICursoRepository>();
             stubRepo.Stub(x => x.ObterPorDescricao("Análise de Sistemas")).Return(cursoJaCadastrado);
 
-            var cursoValidation = new CursoEstaConsistenteParaAtualizar(stubRepo);
+            var cursoValidation = new CursoEstaConsistenteParaAtualizarValidation(stubRepo);
             var result = cursoValidation.Validar(cursoParaAtualizar);
 
             Assert.IsFalse(result.IsValid);

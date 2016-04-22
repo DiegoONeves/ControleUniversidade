@@ -1,4 +1,4 @@
-﻿using DN.ControleUniversidade.Domain.Contracts.Repositories;
+﻿using DN.ControleUniversidade.Domain.Interfaces.Repositories;
 using DN.ControleUniversidade.Infra.Data.Repositories;
 using Ninject.Modules;
 

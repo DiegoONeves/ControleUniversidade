@@ -1,5 +1,5 @@
-﻿using DN.ControleUniversidade.Domain.Contracts.Specification;
-using DN.ControleUniversidade.Domain.Contracts.Validation;
+﻿using DN.ControleUniversidade.Domain.Interfaces.Specification;
+using DN.ControleUniversidade.Domain.Interfaces.Validation;
 
 namespace DN.ControleUniversidade.Domain.Validation
 {

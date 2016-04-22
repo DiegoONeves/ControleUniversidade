@@ -9,7 +9,6 @@ namespace DN.ControleUniversidade.Domain.Tests.Entities
     public class CursoTest
     {
        
-
         [TestMethod]
         [TestCategory("Entity - Curso")]
         public void DescricaoDeveTerEntre5e50Caracteres() 
@@ -24,18 +23,5 @@ namespace DN.ControleUniversidade.Domain.Tests.Entities
             Assert.AreEqual(validacaoEsperada, validacaoQuebrada);
         }
 
-
-        [TestMethod]
-        [TestCategory("Entity - Curso")]
-        public void Na_Atualizacao_Do_Curso_Deve_Alterar_DataAtualizacao()
-        {
-            var tipoCurso = new TipoCurso("Tecnólogo", true);
-            var curso = new Curso("Ciências da Computação", true, tipoCurso);
-            DateTime dataAtuzalicaoCriacao = curso.DataAtualizacao;
-            System.Threading.Thread.Sleep(2000);
-            curso.AtualizarCurso("Novo Nome de Curso", true, tipoCurso);
-
-            Assert.IsTrue(dataAtuzalicaoCriacao != curso.DataAtualizacao);
-        }
     }
 }

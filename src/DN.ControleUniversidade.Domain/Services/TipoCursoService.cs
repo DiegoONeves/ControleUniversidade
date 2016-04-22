@@ -1,7 +1,8 @@
-﻿using DN.ControleUniversidade.Domain.Contracts.Repositories;
-using DN.ControleUniversidade.Domain.Contracts.Services;
+﻿using DN.ControleUniversidade.Domain.Interfaces.Repositories;
+using DN.ControleUniversidade.Domain.Interfaces.Services;
 using DN.ControleUniversidade.Domain.Entities;
 using System.Collections.Generic;
+using System;
 
 namespace DN.ControleUniversidade.Domain.Services
 {
@@ -22,6 +23,12 @@ namespace DN.ControleUniversidade.Domain.Services
         public TipoCurso ObterPorId(System.Guid id)
         {
             return _tipoCursoRepository.GetById(id);
+        }
+
+        public void Dispose()
+        {
+            _tipoCursoRepository.Dispose();
+            GC.SuppressFinalize(this);
         }
     }
 }

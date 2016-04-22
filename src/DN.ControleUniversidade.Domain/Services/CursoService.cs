@@ -1,7 +1,7 @@
 ﻿using DN.ControleUniversidade.Domain.Entities;
-using DN.ControleUniversidade.Domain.Contracts.Repositories;
-using DN.ControleUniversidade.Domain.Contracts.Services;
-using DN.ControleUniversidade.Domain.Validation.CursoValidations;
+using DN.ControleUniversidade.Domain.Interfaces.Repositories;
+using DN.ControleUniversidade.Domain.Interfaces.Services;
+using DN.ControleUniversidade.Domain.Validation.CursoValidation;
 using DN.ControleUniversidade.Domain.ValueObjects;
 using System;
 using System.Collections.Generic;
@@ -28,7 +28,7 @@ namespace DN.ControleUniversidade.Domain.Services
                 return resultadoValidacao;
             }
 
-            var resultadoConsistencia = new CursoEstaConsistente(_cursoRepository).Validar(curso);
+            var resultadoConsistencia = new CursoEstaConsistenteValidation(_cursoRepository).Validar(curso);
 
             if (!resultadoConsistencia.IsValid)
             {
@@ -50,6 +50,7 @@ namespace DN.ControleUniversidade.Domain.Services
         public void Dispose()
         {
             _cursoRepository.Dispose();
+            GC.SuppressFinalize(this);
         }
 
 
@@ -72,7 +73,7 @@ namespace DN.ControleUniversidade.Domain.Services
                 return resultadoValidacao;
             }
 
-            var resultadoConsistencia = new CursoEstaConsistenteParaAtualizar(_cursoRepository).Validar(cursoDb);
+            var resultadoConsistencia = new CursoEstaConsistenteParaAtualizarValidation(_cursoRepository).Validar(cursoDb);
 
             if (!resultadoConsistencia.IsValid)
             {

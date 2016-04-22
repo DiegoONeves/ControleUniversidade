@@ -1,14 +1,14 @@
 ﻿using DN.ControleUniversidade.Domain.Entities;
-using DN.ControleUniversidade.Domain.Contracts.Repositories;
-using DN.ControleUniversidade.Domain.Contracts.Specification;
+using DN.ControleUniversidade.Domain.Interfaces.Repositories;
+using DN.ControleUniversidade.Domain.Interfaces.Specification;
 using System.Linq;
 
-namespace DN.ControleUniversidade.Domain.Specification.CursoSpecs
+namespace DN.ControleUniversidade.Domain.Specification.CursoSpecification
 {
-    public class DescricaoDeveSerUnicaSpec : ISpecification<Curso>
+    public class DescricaoDeveSerUnicaSpecification : ISpecification<Curso>
     {
         private readonly ICursoRepository _cursoRepository;
-        public DescricaoDeveSerUnicaSpec(ICursoRepository cursoRepository)
+        public DescricaoDeveSerUnicaSpecification(ICursoRepository cursoRepository)
         {
             _cursoRepository = cursoRepository;
         }

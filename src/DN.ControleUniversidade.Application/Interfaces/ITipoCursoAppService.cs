@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DN.ControleUniversidade.Application.Interfaces
 {
-    public interface ITipoCursoAppService
+    public interface ITipoCursoAppService : IDisposable
     {
         IEnumerable<TipoCursoViewModel> ObterTodos();
     }

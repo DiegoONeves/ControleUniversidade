@@ -22,12 +22,13 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Cursos", "Index", "Curso")</li>
+                    <li>@Html.ActionLink("Turmas", "Index", "Curso")</li>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Curso<span class="caret"></span></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Aluno<span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li>@Html.ActionLink("Cursos", "Index", "Curso")</li>
-                            <li><a href="#">Alunos</a></li>
+                            <li><a href="#">Cadastrar</a></li>
+                            <li><a href="#">Matricular</a></li>
                         </ul>
                     </li>
                 </ul>

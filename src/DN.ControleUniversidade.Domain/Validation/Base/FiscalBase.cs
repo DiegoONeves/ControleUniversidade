@@ -1,4 +1,4 @@
-﻿using DN.ControleUniversidade.Domain.Contracts.Validation;
+﻿using DN.ControleUniversidade.Domain.Interfaces.Validation;
 using DN.ControleUniversidade.Domain.ValueObjects;
 using System;
 using System.Collections.Generic;

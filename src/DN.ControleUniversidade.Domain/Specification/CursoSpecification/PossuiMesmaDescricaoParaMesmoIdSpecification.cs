@@ -1,18 +1,18 @@
 ﻿using DN.ControleUniversidade.Domain.Entities;
-using DN.ControleUniversidade.Domain.Contracts.Repositories;
-using DN.ControleUniversidade.Domain.Contracts.Specification;
+using DN.ControleUniversidade.Domain.Interfaces.Repositories;
+using DN.ControleUniversidade.Domain.Interfaces.Specification;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DN.ControleUniversidade.Domain.Specification.CursoSpecs
+namespace DN.ControleUniversidade.Domain.Specification.CursoSpecification
 {
-    public class PossuiMesmaDescricaoParaMesmoIdSpec : ISpecification<Curso>
+    public class PossuiMesmaDescricaoParaMesmoIdSpecification : ISpecification<Curso>
     {
         private readonly ICursoRepository _cursoRepository;
-        public PossuiMesmaDescricaoParaMesmoIdSpec(ICursoRepository cursoRepository)
+        public PossuiMesmaDescricaoParaMesmoIdSpecification(ICursoRepository cursoRepository)
         {
             _cursoRepository = cursoRepository;
         }

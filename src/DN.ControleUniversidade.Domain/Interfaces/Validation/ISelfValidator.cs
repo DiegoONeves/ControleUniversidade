@@ -1,6 +1,6 @@
 ﻿using DN.ControleUniversidade.Domain.ValueObjects;
 
-namespace DN.ControleUniversidade.Domain.Contracts.Validation
+namespace DN.ControleUniversidade.Domain.Interfaces.Validation
 {
     public interface ISelfValidator
     {

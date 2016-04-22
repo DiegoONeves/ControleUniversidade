@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq.Expressions;
 
-namespace DN.ControleUniversidade.Domain.Contracts.Repositories
+namespace DN.ControleUniversidade.Domain.Interfaces.Repositories
 {
     public interface IRepositoryBase<TEntity> : IDisposable where TEntity : class
     {

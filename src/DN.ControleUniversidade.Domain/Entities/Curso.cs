@@ -1,5 +1,5 @@
-﻿using DN.ControleUniversidade.Domain.Contracts.Validation;
-using DN.ControleUniversidade.Domain.Validation.CursoValidations;
+﻿using DN.ControleUniversidade.Domain.Interfaces.Validation;
+using DN.ControleUniversidade.Domain.Validation.CursoValidation;
 using DN.ControleUniversidade.Domain.ValueObjects;
 using System;
 using System.Collections.Generic;
@@ -20,7 +20,7 @@ namespace DN.ControleUniversidade.Domain.Entities
             DataAtualizacao = DateTime.Now;
 
 
-            var fiscal = new CursoEstaAptoParaCadastro();
+            var fiscal = new CursoEstaAptoParaCadastroValidation();
             ResultadoValidacao = fiscal.Validar(this);
         }
 
@@ -34,7 +34,7 @@ namespace DN.ControleUniversidade.Domain.Entities
             DataAtualizacao = DateTime.Now;
 
 
-            var fiscal = new CursoEstaAptoParaCadastro();
+            var fiscal = new CursoEstaAptoParaCadastroValidation();
             ResultadoValidacao = fiscal.Validar(this);
         }
 
@@ -58,7 +58,7 @@ namespace DN.ControleUniversidade.Domain.Entities
             TipoCurso = tipoCurso;
             DataAtualizacao = DateTime.Now;
 
-            var fiscal = new CursoEstaAptoParaAtualizacao();
+            var fiscal = new CursoEstaAptoParaAtualizacaoValidation();
             ResultadoValidacao = fiscal.Validar(this);
         }
 

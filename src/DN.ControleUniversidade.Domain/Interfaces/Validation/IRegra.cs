@@ -1,5 +1,5 @@
 ﻿
-namespace DN.ControleUniversidade.Domain.Contracts.Validation
+namespace DN.ControleUniversidade.Domain.Interfaces.Validation
 {
     public interface IRegra<in TEntity>
     {

@@ -2,9 +2,9 @@
 using System;
 using System.Collections.Generic;
 
-namespace DN.ControleUniversidade.Domain.Contracts.Services
+namespace DN.ControleUniversidade.Domain.Interfaces.Services
 {
-    public interface ITipoCursoService
+    public interface ITipoCursoService : IDisposable
     {
         IEnumerable<TipoCurso> ObterTodos();
         TipoCurso ObterPorId(Guid id);

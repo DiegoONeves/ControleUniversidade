@@ -1,4 +1,4 @@
-﻿using DN.ControleUniversidade.Domain.Contracts.Services;
+﻿using DN.ControleUniversidade.Domain.Interfaces.Services;
 using DN.ControleUniversidade.Domain.Services;
 using Ninject.Modules;
 

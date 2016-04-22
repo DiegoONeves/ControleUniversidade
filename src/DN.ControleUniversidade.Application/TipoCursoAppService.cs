@@ -1,7 +1,7 @@
 ﻿using DN.ControleUniversidade.Application.Interfaces;
 using DN.ControleUniversidade.Application.Mapper;
 using DN.ControleUniversidade.Application.ViewModels;
-using DN.ControleUniversidade.Domain.Contracts.Services;
+using DN.ControleUniversidade.Domain.Interfaces.Services;
 using DN.ControleUniversidade.Infra.Data.Context;
 using System;
 using System.Collections.Generic;
@@ -18,6 +18,12 @@ namespace DN.ControleUniversidade.Application
         public TipoCursoAppService(ITipoCursoService tipoCursoService)
         {
             _tipoCursoService = tipoCursoService;
+        }
+
+        public void Dispose()
+        {
+            _tipoCursoService.Dispose();
+            GC.SuppressFinalize(this);
         }
 
         public IEnumerable<TipoCursoViewModel> ObterTodos()

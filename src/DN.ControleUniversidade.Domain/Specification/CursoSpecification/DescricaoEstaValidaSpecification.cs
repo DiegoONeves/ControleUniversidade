@@ -1,10 +1,10 @@
 ﻿using DN.ControleUniversidade.Domain.Entities;
-using DN.ControleUniversidade.Domain.Contracts.Specification;
+using DN.ControleUniversidade.Domain.Interfaces.Specification;
 
 
-namespace DN.ControleUniversidade.Domain.Specification.CursoSpecs
+namespace DN.ControleUniversidade.Domain.Specification.CursoSpecification
 {
-    public class DescricaoEstaValidaSpec : ISpecification<Curso>
+    public class DescricaoEstaValidaSpecification : ISpecification<Curso>
     {
         public bool IsSatisfiedBy(Curso curso)
         {
