@@ -4,15 +4,18 @@ Projeto de estudo que tem como objetivo construir uma aplicação multiplataform
 **Tecnologias utilizadas:**
 - ASP.NET MVC 5
 - ASP.NET WebAPI 2.0
+- Windows Forms
 - C#
 - Entity Framework 6
 - jQuery
 - AngularJS
 - Bootstrap
+- Ninject
 
 **Patterns utilizadas:**
 - SOLID
 - Service Locator
 - Unity Of Work
-- Specification 
+- Specification Pattern
 - Dependency Injection
+- Repository Pattern
