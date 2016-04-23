@@ -6,7 +6,7 @@ Projeto de estudo que tem como objetivo construir uma aplicação multiplataform
 - ASP.NET WebAPI 2.0
 - Windows Forms
 - C#
-- Entity Framework 6
+- Entity Framework 6 (Fluent Api)
 - jQuery
 - AngularJS
 - Bootstrap
