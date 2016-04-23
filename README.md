@@ -1,5 +1,5 @@
 # ControleUniversidade
-Projeto de estudo aplicando técnicas de DDD, TDD, SOLID e Design Patterns com ASP.NET MVC 5 e C#.
+Projeto de estudo que tem como objetivo construir uma aplicação multiplataforma aplicando técnicas de DDD, TDD, SOLID e Design Patterns.
 
 **Tecnologias e Patterns utilizados:**
 - ASP.NET MVC 5
