@@ -13,6 +13,8 @@ namespace DN.ControleUniversidade.Domain.Interfaces.Services
         ValidationResult AdicionarNovoCurso(Curso curso);
         ValidationResult AtualizarCurso(Curso curso);
         IEnumerable<Curso> ObterTodos();
+        IEnumerable<Curso> ObterGrid();
         Curso ObterPorId(Guid cursoId);
+        Curso ObterPorIdComDependencias(Guid cursoId);
     }
 }

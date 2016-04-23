@@ -11,7 +11,7 @@ namespace DN.ControleUniversidade.Domain.Tests.Entities
        
         [TestMethod]
         [TestCategory("Entity - Curso")]
-        public void DescricaoDeveTerEntre5e50Caracteres() 
+        public void NomeDeveTerEntre5e50Caracteres() 
         {
             string validacaoEsperada = "A descrição deve conter entre 5 e 50 caracteres";
             var tipoCurso = new TipoCurso("Tecnólogo", true);

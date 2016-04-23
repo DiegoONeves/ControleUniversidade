@@ -9,17 +9,17 @@ using System.Threading.Tasks;
 
 namespace DN.ControleUniversidade.Domain.Specification.CursoSpecification
 {
-    public class PossuiMesmaDescricaoParaMesmoIdSpecification : ISpecification<Curso>
+    public class PossuiMesmoNomeParaMesmoIdSpecification : ISpecification<Curso>
     {
         private readonly ICursoRepository _cursoRepository;
-        public PossuiMesmaDescricaoParaMesmoIdSpecification(ICursoRepository cursoRepository)
+        public PossuiMesmoNomeParaMesmoIdSpecification(ICursoRepository cursoRepository)
         {
             _cursoRepository = cursoRepository;
         }
 
         public bool IsSatisfiedBy(Curso curso)
         {
-            var cursoDb = _cursoRepository.ObterPorDescricao(curso.Descricao);
+            var cursoDb = _cursoRepository.ObterPorNome(curso.Nome);
 
             if (cursoDb != null)
                 return (cursoDb.CursoId == curso.CursoId);

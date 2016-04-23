@@ -13,18 +13,18 @@ namespace DN.ControleUniversidade.Domain.Services
         {
             _tipoCursoRepository = tipoCursoRepository;
         }
-
         public IEnumerable<TipoCurso> ObterTodos()
         {
             return _tipoCursoRepository.GetAll();
         }
-
-
-        public TipoCurso ObterPorId(System.Guid id)
+        public TipoCurso ObterPorId(Guid id)
         {
             return _tipoCursoRepository.GetById(id);
         }
-
+        public IEnumerable<TipoCurso> Listar()
+        {
+            return _tipoCursoRepository.Listar();
+        }
         public void Dispose()
         {
             _tipoCursoRepository.Dispose();

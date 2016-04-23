@@ -1,18 +1,21 @@
-﻿@model IEnumerable<DN.ControleUniversidade.Application.ViewModels.CursoViewModel>
+﻿@model IEnumerable<DN.ControleUniversidade.Application.ViewModels.Curso.GridCursoViewModel>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Cursos";
 }
 
-<h2>Index</h2>
-<p>
-    <a class="btn btn-info" href="/Curso/Cadastrar">Novo Curso</a>
-</p>
+<h2>Cursos</h2>
 
-<table class="table table-striped table-bordered">
+<p>
+    @Html.ActionLink("Novo Curso", "Cadastrar")
+</p>
+<table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Descricao)
+            @Html.DisplayNameFor(model => model.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TipoCurso)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Ativo)
@@ -20,17 +23,17 @@
         <th>
             @Html.DisplayNameFor(model => model.DataCadastro)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DataAtualizacao)
-        </th>
-        <th>Ações</th>
+        <th></th>
     </tr>
 
     @foreach (var item in Model)
     {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Descricao)
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TipoCurso)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Ativo)
@@ -39,12 +42,7 @@
                 @Html.DisplayFor(modelItem => item.DataCadastro)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.DataAtualizacao)
-            </td>
-            <td>
-                @Html.ActionLink("Editar", "Editar", new { cursoId = item.CursoId }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                @Html.ActionLink("Editar", "Editar", new { cursoId = item.CursoId })
             </td>
         </tr>
     }

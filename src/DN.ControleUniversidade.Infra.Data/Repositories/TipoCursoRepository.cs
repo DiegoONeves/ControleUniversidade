@@ -11,5 +11,9 @@ namespace DN.ControleUniversidade.Infra.Data.Repositories
 {
     public class TipoCursoRepository : RepositoryBase<TipoCurso, UniversidadeContext>, ITipoCursoRepository
     {
+        public IEnumerable<TipoCurso> Listar()
+        {
+            return GetAllReadOnly();
+        }
     }
 }

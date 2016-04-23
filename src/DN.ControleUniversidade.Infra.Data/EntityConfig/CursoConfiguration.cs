@@ -9,11 +9,12 @@ namespace DN.ControleUniversidade.Infra.Data.EntityConfig
         {
             HasKey(x => x.CursoId);
 
-            Property(x => x.Descricao)
+            Property(x => x.Nome)
               .IsRequired()
               .HasMaxLength(100);
 
-            Property(x => x.DataCadastro).IsRequired();
+            Property(x => x.DataCadastro)
+                .IsRequired();
 
             HasRequired(x => x.TipoCurso)
              .WithMany(x => x.CursoLista)

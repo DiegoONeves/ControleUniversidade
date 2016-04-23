@@ -1,7 +1,5 @@
 ﻿using DN.ControleUniversidade.Application.Interfaces;
-using DN.ControleUniversidade.Application.Mapper;
 using DN.ControleUniversidade.Application.Validation;
-using DN.ControleUniversidade.Application.ViewModels;
 using DN.ControleUniversidade.Domain.Interfaces.Services;
 using DN.ControleUniversidade.Infra.Data.Context;
 using System;
@@ -9,6 +7,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DN.ControleUniversidade.Application.ViewModels.Curso;
+using DN.ControleUniversidade.Domain.Entities;
 
 namespace DN.ControleUniversidade.Application
 {
@@ -22,54 +22,72 @@ namespace DN.ControleUniversidade.Application
             _cursoService = cursoService;
             _tipoCursoService = tipoCursoService;
         }
-        public ValidationAppResult AdicionarNovoCurso(CursoViewModel cursoViewModel)
-        {
-            var tipoCursoDb = _tipoCursoService.ObterPorId(cursoViewModel.TipoCursoId);
-            var cursoDomain = CursoMapper.CursoViewModelParaCursoDomain(cursoViewModel, tipoCursoDb);
 
+        public ValidationAppResult CadastrarNovoCurso(NovoCursoViewModel novoCursoViewModel)
+        {
+            var resultadoValidacao = new ValidationAppResult();
             BeginTransaction();
 
-            var validationAppResult = DomainToApplicationResult(_cursoService.AdicionarNovoCurso(cursoDomain));
+            var novoCurso = new Curso(novoCursoViewModel.Nome, novoCursoViewModel.Ativo, _tipoCursoService.ObterPorId(novoCursoViewModel.TipoCursoId));
+
+            resultadoValidacao = DomainToApplicationResult(_cursoService.AdicionarNovoCurso(novoCurso));
+
+            if (resultadoValidacao.IsValid)
+                Commit();
+
+            return resultadoValidacao;
+        }
+
+        public ValidationAppResult EditarCurso(EdicaoCursoViewModel cursoViewModel)
+        {
+            BeginTransaction();
+            var curso = _cursoService.ObterPorId(cursoViewModel.CursoId);
+            var tipoCurso = _tipoCursoService.ObterPorId(cursoViewModel.TipoCursoId);
+            curso.AtualizarCurso(cursoViewModel.Nome, cursoViewModel.Ativo, tipoCurso);
+
+            var validationAppResult = DomainToApplicationResult(_cursoService.AtualizarCurso(curso));
 
             if (validationAppResult.IsValid)
                 Commit();
 
-            return validationAppResult;    
+            return validationAppResult;
         }
-
-        public IEnumerable<CursoViewModel> ObterTodos()
+        public IEnumerable<GridCursoViewModel> ListarGrid()
         {
-            var cursosDb = _cursoService.ObterTodos();
+            var cursos = _cursoService.ObterGrid();
+            var viewModels = new List<GridCursoViewModel>();
+            foreach (var item in cursos)
+            {
+                viewModels.Add(new GridCursoViewModel {
+                    CursoId = item.CursoId,
+                    Nome = item.Nome,
+                    DataCadastro = item.DataCadastro,
+                    Ativo = item.Ativo,
+                    TipoCurso = item.TipoCurso.Descricao
+                });
+            }
 
-            return CursoMapper.ListCursoParaListCursoViewModel(cursosDb);
-          
+            return viewModels;
         }
-
-        public CursoViewModel ObterCursoPorId(Guid cursoId) 
+        public EdicaoCursoViewModel ObterParaEditar(Guid id)
         {
-            var cursoDb = _cursoService.ObterPorId(cursoId);
+            var curso = _cursoService.ObterPorIdComDependencias(id);
 
-            return CursoMapper.CursoDomainParaCursoViewModel(cursoDb);
+            var cursoViewModel = new EdicaoCursoViewModel
+            {
+                CursoId = curso.CursoId,
+                Nome = curso.Nome,
+                TipoCursoId = curso.TipoCurso.TipoCursoId,
+                Ativo = curso.Ativo
+            };
+
+            return cursoViewModel;
         }
-
         public void Dispose()
         {
             _cursoService.Dispose();
+            _tipoCursoService.Dispose();
             GC.SuppressFinalize(this);
-        }
-
-
-        public ValidationAppResult AtualizarCurso(CursoViewModel cursoViewModel)
-        {
-            BeginTransaction();
-            var cursoDomain = CursoMapper.CursoViewModelParaCursoDomain(cursoViewModel, null);
-
-            var validationAppResult = DomainToApplicationResult(_cursoService.AtualizarCurso(cursoDomain));
-
-            if (validationAppResult.IsValid)
-                Commit();
-
-            return validationAppResult;  
         }
     }
 }

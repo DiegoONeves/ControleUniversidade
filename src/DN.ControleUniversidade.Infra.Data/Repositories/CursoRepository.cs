@@ -6,14 +6,30 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.Entity;
 
 namespace DN.ControleUniversidade.Infra.Data.Repositories
 {
     public class CursoRepository : RepositoryBase<Curso, UniversidadeContext>, ICursoRepository
     {
-        public Curso ObterPorDescricao(string descricao)
+        public IEnumerable<Curso> ObterGrid()
         {
-            return Find(x => x.Descricao == descricao).FirstOrDefault();
+            return DbSet
+                .Include("TipoCurso")
+                .AsNoTracking()
+                .ToList();
+        }
+
+        public Curso ObterPorIdComDependencias(Guid cursoId)
+        {
+            return DbSet
+                 .Include("TipoCurso")
+                 .FirstOrDefault(x => x.CursoId == cursoId);
+        }
+
+        public Curso ObterPorNome(string descricao)
+        {
+            return Find(x => x.Nome == descricao).FirstOrDefault();
         }
     }
 }

@@ -10,10 +10,10 @@ namespace DN.ControleUniversidade.Domain.Entities
     {
         protected Curso() { }
 
-        public Curso(string descricao, bool ativo, TipoCurso tipoCurso)
+        public Curso(string nome, bool ativo, TipoCurso tipoCurso)
         {
             CursoId = Guid.NewGuid();
-            Descricao = descricao;
+            Nome = nome;
             TipoCurso = tipoCurso;
             Ativo = ativo;
             DataCadastro = DateTime.Now;
@@ -24,14 +24,13 @@ namespace DN.ControleUniversidade.Domain.Entities
             ResultadoValidacao = fiscal.Validar(this);
         }
 
-        public Curso(Guid id, string descricao, bool ativo, TipoCurso tipoCurso)
+        public Curso(Guid id, string nome, bool ativo, TipoCurso tipoCurso)
         {
             CursoId = id;
-            Descricao = descricao;
+            Nome = nome;
             TipoCurso = tipoCurso;
             Ativo = ativo;
             DataCadastro = DateTime.Now;
-            DataAtualizacao = DateTime.Now;
 
 
             var fiscal = new CursoEstaAptoParaCadastroValidation();
@@ -39,7 +38,7 @@ namespace DN.ControleUniversidade.Domain.Entities
         }
 
         public Guid CursoId { get; protected set; }
-        public string Descricao { get; protected set; }
+        public string Nome { get; protected set; }
         public bool Ativo { get; protected set; }
         public DateTime DataCadastro { get; protected set; }
         public DateTime DataAtualizacao { get; protected set; }
@@ -51,9 +50,9 @@ namespace DN.ControleUniversidade.Domain.Entities
             get { return ResultadoValidacao.IsValid; }
         }
 
-        public void AtualizarCurso(string descricao, bool ativo, TipoCurso tipoCurso)
+        public void AtualizarCurso(string nome, bool ativo, TipoCurso tipoCurso)
         {
-            Descricao = descricao;
+            Nome = nome;
             Ativo = ativo;
             TipoCurso = tipoCurso;
             DataAtualizacao = DateTime.Now;

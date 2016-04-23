@@ -1,5 +1,5 @@
 ﻿using DN.ControleUniversidade.Application.Interfaces;
-using DN.ControleUniversidade.Application.ViewModels;
+using DN.ControleUniversidade.Application.ViewModels.Curso;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,18 +17,75 @@ namespace DN.ControleUniversidade.Presentation.Mvc.Controllers
             _cursoAppService = cursoAppService;
             _tipoCursoAppService = tipoCursoAppService;
         }
-        // GET: Curso
+
         public ActionResult Index()
         {
-            var cursos = _cursoAppService.ObterTodos();
-            return View(cursos);
+            var model = _cursoAppService.ListarGrid();
+            return View(model);
+        }
+
+        public ActionResult Cadastrar()
+        {
+            var model = new NovoCursoViewModel();
+            model.TiposCurso = PreencherTipoCurso();
+            model.Ativo = false;
+            return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Cadastrar(NovoCursoViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var result = _cursoAppService.CadastrarNovoCurso(model);
+
+                if (result.IsValid)
+                    return RedirectToAction("Index");
+                else
+                {
+                    foreach (var item in result.Erros)
+                        ModelState.AddModelError("", item.Message);
+                }
+
+            }
+            model.TiposCurso = PreencherTipoCurso();
+            return View(model);
+        }
+
+        public ActionResult Editar(Guid cursoId)
+        {
+            var model = _cursoAppService.ObterParaEditar(cursoId);
+            model.TiposCurso = PreencherTipoCurso();
+            return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Editar(EdicaoCursoViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var result = _cursoAppService.EditarCurso(model);
+
+                if (result.IsValid)
+                    return RedirectToAction("Index");
+                else
+                {
+                    foreach (var item in result.Erros)
+                        ModelState.AddModelError("", item.Message);
+                }
+
+            }
+            model.TiposCurso = PreencherTipoCurso();
+            return View(model);
         }
 
         [OutputCache(Duration = 300, VaryByParam = "none")]
         [NonAction]
         private IEnumerable<SelectListItem> PreencherTipoCurso()
         {
-            return _tipoCursoAppService.ObterTodos()
+            return _tipoCursoAppService.ListarTodos()
             .Select(x => new SelectListItem
             {
                 Text = x.Descricao,
@@ -36,53 +93,8 @@ namespace DN.ControleUniversidade.Presentation.Mvc.Controllers
             });
         }
 
-        public ActionResult Cadastrar()
-        {
-            var model = new CursoViewModel();
-            model.TiposCurso = PreencherTipoCurso();
-            return View(model);
-        }
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Cadastrar(CursoViewModel model)
-        {
-            if (ModelState.IsValid)
-            {
-                var validationAppResult = _cursoAppService.AdicionarNovoCurso(model);
 
-                foreach (var item in validationAppResult.Erros)
-                    ModelState.AddModelError("", item.Message);
 
-                if (validationAppResult.Erros.Count == 0)
-                    return RedirectToAction("Index");
-            }
-
-            model.TiposCurso = PreencherTipoCurso();
-            return View(model);
-        }
-
-        public ActionResult Editar(Guid cursoId)
-        {
-            var cursoParaEdicao = _cursoAppService.ObterCursoPorId(cursoId);
-            return View(cursoParaEdicao);
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Editar(CursoViewModel curso)
-        {
-            if (ModelState.IsValid)
-            {
-                var validationAppResult = _cursoAppService.AtualizarCurso(curso);
-
-                foreach (var item in validationAppResult.Erros)
-                    ModelState.AddModelError("", item.Message);
-
-                if (validationAppResult.Erros.Count == 0)
-                    return RedirectToAction("Index");
-            }
-            return View(curso);
-        }
     }
 }

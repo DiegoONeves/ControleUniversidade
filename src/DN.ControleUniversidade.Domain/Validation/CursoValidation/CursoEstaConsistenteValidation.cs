@@ -9,9 +9,9 @@ namespace DN.ControleUniversidade.Domain.Validation.CursoValidation
     {
         public CursoEstaConsistenteValidation(ICursoRepository cursoRepository)
         {
-            var cursoDescricaoUnica = new DescricaoDeveSerUnicaSpecification(cursoRepository);
+            var cursoNomeUnico = new NomeDeveSerUnicaSpecification(cursoRepository);
 
-            base.AdicionarRegra("DescricaoJaCadastrada", new Regra<Curso>(cursoDescricaoUnica, "Este curso já foi cadastrado na base de dados"));
+            base.AdicionarRegra("NomeJaCadastrado", new Regra<Curso>(cursoNomeUnico, "Este curso já foi cadastrado na base de dados."));
         }
     }
 }

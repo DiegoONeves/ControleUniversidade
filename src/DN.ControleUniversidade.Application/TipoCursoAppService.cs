@@ -1,6 +1,4 @@
 ﻿using DN.ControleUniversidade.Application.Interfaces;
-using DN.ControleUniversidade.Application.Mapper;
-using DN.ControleUniversidade.Application.ViewModels;
 using DN.ControleUniversidade.Domain.Interfaces.Services;
 using DN.ControleUniversidade.Infra.Data.Context;
 using System;
@@ -8,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DN.ControleUniversidade.Application.ViewModels.TipoCurso;
 
 namespace DN.ControleUniversidade.Application
 {
@@ -26,9 +25,19 @@ namespace DN.ControleUniversidade.Application
             GC.SuppressFinalize(this);
         }
 
-        public IEnumerable<TipoCursoViewModel> ObterTodos()
+        public IEnumerable<TipoCursoViewModel> ListarTodos()
         {
-            return TipoCursoMapper.ListTipoCursoParaListTipoCursoViewModel(_tipoCursoService.ObterTodos());
+            var tipos = _tipoCursoService.Listar();
+            var viewModels = new List<TipoCursoViewModel>();
+            foreach (var item in tipos)
+            {
+                viewModels.Add(new TipoCursoViewModel {
+                    TipoCursoId = item.TipoCursoId,
+                    Descricao = item.Descricao
+                });
+            }
+
+            return viewModels;
         }
     }
 }

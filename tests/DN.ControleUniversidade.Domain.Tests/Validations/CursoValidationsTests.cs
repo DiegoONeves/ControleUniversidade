@@ -29,30 +29,30 @@ namespace DN.ControleUniversidade.Domain.Tests.Validations
             var curso = new Curso("Análise de Sistemas", true, tipoCurso);
 
             var stubRepo = MockRepository.GenerateStub<ICursoRepository>();
-            stubRepo.Stub(x => x.ObterPorDescricao("Análise de Sistemas")).Return(curso);
+            stubRepo.Stub(x => x.ObterPorNome("Análise de Sistemas")).Return(curso);
 
             var cursoValidation = new CursoEstaConsistenteValidation(stubRepo);
             var result = cursoValidation.Validar(curso);
 
             Assert.IsFalse(result.IsValid);
-            Assert.IsTrue(result.Erros.Any(x => x.Message == "Este curso já foi cadastrado na base de dados"));
+            Assert.IsTrue(result.Erros.Any(x => x.Message == "Este curso já foi cadastrado na base de dados."));
         }
 
         [TestMethod]
         [TestCategory("Validations - Curso")]
-        public void Para_Atualizar_Um_Curso_Deve_Ter_Descricao_Diferente_Se_For_Ids_Diferentes()
+        public void Para_Atualizar_Um_Curso_Deve_Ter_Nome_Diferente_Se_For_Ids_Diferentes()
         {
             var cursoParaAtualizar = new Curso("Análise de Sistemas", true, tipoCurso);
             var cursoJaCadastrado = new Curso("Análise de Sistemas", true, tipoCurso);
 
             var stubRepo = MockRepository.GenerateStub<ICursoRepository>();
-            stubRepo.Stub(x => x.ObterPorDescricao("Análise de Sistemas")).Return(cursoJaCadastrado);
+            stubRepo.Stub(x => x.ObterPorNome("Análise de Sistemas")).Return(cursoJaCadastrado);
 
             var cursoValidation = new CursoEstaConsistenteParaAtualizarValidation(stubRepo);
             var result = cursoValidation.Validar(cursoParaAtualizar);
 
             Assert.IsFalse(result.IsValid);
-            Assert.IsTrue(result.Erros.Any(x => x.Message == "Este curso já foi cadastrado na base de dados"));
+            Assert.IsTrue(result.Erros.Any(x => x.Message == "Este curso já foi cadastrado na base de dados."));
 
         }
 

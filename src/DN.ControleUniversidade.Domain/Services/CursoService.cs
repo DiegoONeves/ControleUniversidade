@@ -39,33 +39,24 @@ namespace DN.ControleUniversidade.Domain.Services
 
             return resultadoValidacao;
         }
-
-
         public IEnumerable<Curso> ObterTodos()
         {
             return _cursoRepository.GetAll();
         }
-
-
-        public void Dispose()
-        {
-            _cursoRepository.Dispose();
-            GC.SuppressFinalize(this);
-        }
-
-
         public Curso ObterPorId(Guid cursoId)
         {
             return _cursoRepository.GetById(cursoId);
         }
-
-
+        public Curso ObterPorIdComDependencias(Guid cursoId)
+        {
+            return _cursoRepository.ObterPorIdComDependencias(cursoId);
+        }
         public ValidationResult AtualizarCurso(Curso curso)
         {
             var resultadoValidacao = new ValidationResult();
             var cursoDb = _cursoRepository.GetById(curso.CursoId);
 
-            cursoDb.AtualizarCurso(curso.Descricao, curso.Ativo, curso.TipoCurso);
+            cursoDb.AtualizarCurso(curso.Nome, curso.Ativo, curso.TipoCurso);
 
             if (!cursoDb.IsValid)
             {
@@ -85,5 +76,16 @@ namespace DN.ControleUniversidade.Domain.Services
 
             return resultadoValidacao;
         }
+        public IEnumerable<Curso> ObterGrid()
+        {
+            return _cursoRepository.ObterGrid();
+        }
+        public void Dispose()
+        {
+            _cursoRepository.Dispose();
+            GC.SuppressFinalize(this);
+        }
+
+        
     }
 }

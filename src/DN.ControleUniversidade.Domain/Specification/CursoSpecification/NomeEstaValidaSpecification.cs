@@ -4,13 +4,13 @@ using DN.ControleUniversidade.Domain.Interfaces.Specification;
 
 namespace DN.ControleUniversidade.Domain.Specification.CursoSpecification
 {
-    public class DescricaoEstaValidaSpecification : ISpecification<Curso>
+    public class NomeEstaValidaSpecification : ISpecification<Curso>
     {
         public bool IsSatisfiedBy(Curso curso)
         {
-            if (!string.IsNullOrEmpty(curso.Descricao))
+            if (!string.IsNullOrEmpty(curso.Nome))
             {
-                return curso.Descricao.Length > 5 && curso.Descricao.Length < 50;
+                return curso.Nome.Length > 5 && curso.Nome.Length < 50;
             }
             return false;
         }

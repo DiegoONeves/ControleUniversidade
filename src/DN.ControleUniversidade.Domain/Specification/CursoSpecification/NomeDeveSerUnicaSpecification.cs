@@ -5,16 +5,16 @@ using System.Linq;
 
 namespace DN.ControleUniversidade.Domain.Specification.CursoSpecification
 {
-    public class DescricaoDeveSerUnicaSpecification : ISpecification<Curso>
+    public class NomeDeveSerUnicaSpecification : ISpecification<Curso>
     {
         private readonly ICursoRepository _cursoRepository;
-        public DescricaoDeveSerUnicaSpecification(ICursoRepository cursoRepository)
+        public NomeDeveSerUnicaSpecification(ICursoRepository cursoRepository)
         {
             _cursoRepository = cursoRepository;
         }
         public bool IsSatisfiedBy(Curso curso)
         {
-            return _cursoRepository.ObterPorDescricao(curso.Descricao) == null;
+            return _cursoRepository.ObterPorNome(curso.Nome) == null;
         }
     }
 }

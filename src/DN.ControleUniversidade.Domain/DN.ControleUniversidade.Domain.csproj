@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>DN.ControleUniversidade.Domain</RootNamespace>
     <AssemblyName>DN.ControleUniversidade.Domain</AssemblyName>
-    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -48,9 +48,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\CursoService.cs" />
     <Compile Include="Services\TipoCursoService.cs" />
-    <Compile Include="Specification\CursoSpecification\PossuiMesmaDescricaoParaMesmoIdSpecification.cs" />
-    <Compile Include="Specification\CursoSpecification\DescricaoDeveSerUnicaSpecification.cs" />
-    <Compile Include="Specification\CursoSpecification\DescricaoEstaValidaSpecification.cs" />
+    <Compile Include="Specification\CursoSpecification\PossuiMesmoNomeParaMesmoIdSpecification.cs" />
+    <Compile Include="Specification\CursoSpecification\NomeDeveSerUnicaSpecification.cs" />
+    <Compile Include="Specification\CursoSpecification\NomeEstaValidaSpecification.cs" />
     <Compile Include="Validation\Base\FiscalBase.cs" />
     <Compile Include="Validation\CursoValidation\CursoEstaAptoParaAtualizacaoValidation.cs" />
     <Compile Include="Validation\CursoValidation\CursoEstaAptoParaCadastroValidation.cs" />

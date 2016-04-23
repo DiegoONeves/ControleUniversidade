@@ -34,7 +34,7 @@ namespace DN.ControleUniversidade.Infra.Data.Repositories
             return DbSet.Find(id);
         }
 
-        public IEnumerable<TEntity> GetAll()
+        public virtual IEnumerable<TEntity> GetAll()
         {
             return DbSet.ToList();
         }

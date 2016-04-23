@@ -9,6 +9,8 @@ namespace DN.ControleUniversidade.Domain.Interfaces.Repositories
 {
     public interface ICursoRepository : IRepositoryBase<Curso>
     {
-        Curso ObterPorDescricao(string descricao);
+        Curso ObterPorNome(string nome);
+        Curso ObterPorIdComDependencias(Guid cursoId);
+        IEnumerable<Curso> ObterGrid();
     }
 }

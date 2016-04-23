@@ -9,9 +9,9 @@ namespace DN.ControleUniversidade.Domain.Validation.CursoValidation
         public CursoEstaAptoParaCadastroValidation()
         {
             //Especificações de Curso
-            var cursoDescricao = new DescricaoEstaValidaSpecification();
+            var cursoNome = new NomeEstaValidaSpecification();
 
-            base.AdicionarRegra("DescricaoInvalida", new Regra<Curso>(cursoDescricao, "A descrição deve conter entre 5 e 50 caracteres"));
+            base.AdicionarRegra("NomeInvalido", new Regra<Curso>(cursoNome, "O nome deve conter entre 5 e 50 caracteres."));
 
         }
     }

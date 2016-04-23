@@ -1,4 +1,4 @@
-﻿using DN.ControleUniversidade.Application.ViewModels;
+﻿using DN.ControleUniversidade.Application.ViewModels.TipoCurso;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +9,6 @@ namespace DN.ControleUniversidade.Application.Interfaces
 {
     public interface ITipoCursoAppService : IDisposable
     {
-        IEnumerable<TipoCursoViewModel> ObterTodos();
+        IEnumerable<TipoCursoViewModel> ListarTodos();
     }
 }
