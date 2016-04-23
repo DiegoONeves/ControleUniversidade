@@ -20,5 +20,4 @@ Projeto de estudo que tem como objetivo construir uma aplicação multiplataform
 - Dependency Injection
 - Repository Pattern
 
-**Dúvidas e Sugestões:**
-E-mail: diegoneves1989@gmail.com
+**Dúvidas e Sugestões:** diegoneves1989@gmail.com
