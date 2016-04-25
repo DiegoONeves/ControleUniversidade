@@ -26,9 +26,9 @@ namespace DN.ControleUniversidade.Domain.Entities
         public string Nome { get; protected set; }
         public bool Ativo { get; protected set; }
         public DateTime DataCadastro { get; protected set; }
-        public DateTime DataAtualizacao { get; protected set; }
+        public DateTime? DataAtualizacao { get; protected set; }
         public ValidationResult ResultadoValidacao { get; private set; }
-        public virtual TipoCurso TipoCurso { get; set; }
+        public virtual TipoCurso TipoCurso { get; protected set; }
 
         public bool IsValid
         {

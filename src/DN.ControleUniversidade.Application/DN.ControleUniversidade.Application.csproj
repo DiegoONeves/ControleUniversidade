@@ -40,6 +40,7 @@
     <Compile Include="TipoCursoAppService.cs" />
     <Compile Include="Validation\ValidationAppError.cs" />
     <Compile Include="Validation\ValidationAppResult.cs" />
+    <Compile Include="ViewModels\Aluno\NovoAlunoViewModel.cs" />
     <Compile Include="ViewModels\Curso\EdicaoCursoViewModel.cs" />
     <Compile Include="ViewModels\Curso\GridCursoViewModel.cs" />
     <Compile Include="ViewModels\Curso\NovoCursoViewModel.cs" />
@@ -71,6 +72,10 @@
     <ProjectReference Include="..\DN.ControleUniversidade.Domain\DN.ControleUniversidade.Domain.csproj">
       <Project>{784e0ad2-23b8-4d65-8898-841343a2a877}</Project>
       <Name>DN.ControleUniversidade.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DN.ControleUniversidade.Infra.CrossCutting.Common\DN.ControleUniversidade.Infra.CrossCutting.Common.csproj">
+      <Project>{c7149411-b263-4589-930c-b4d1e86134f0}</Project>
+      <Name>DN.ControleUniversidade.Infra.CrossCutting.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\DN.ControleUniversidade.Infra.Data\DN.ControleUniversidade.Infra.Data.csproj">
       <Project>{f91bebb5-3bdf-4c10-af18-bb07948b2305}</Project>

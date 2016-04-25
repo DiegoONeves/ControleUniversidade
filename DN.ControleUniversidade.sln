@@ -31,6 +31,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DN.ControleUniversidade.Inf
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DN.ControleUniversidade.Infra.CrossCutting.Common", "src\DN.ControleUniversidade.Infra.CrossCutting.Common\DN.ControleUniversidade.Infra.CrossCutting.Common.csproj", "{C7149411-B263-4589-930C-B4D1E86134F0}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Service", "1 - Service", "{5290F9D2-6D3A-4186-91D1-8BB80E34FFBD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

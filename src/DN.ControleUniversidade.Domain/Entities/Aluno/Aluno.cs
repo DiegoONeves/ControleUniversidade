@@ -31,12 +31,11 @@ namespace DN.ControleUniversidade.Domain.Entities
         public virtual Usuario Usuario { get; protected set; }
         public DateTime DataNascimento { get; protected set; }
         public DateTime DataCadastro { get; protected set; }
-        public DateTime DataAtualizacao { get; protected set; }
+        public DateTime? DataAtualizacao { get; protected set; }
         public virtual ICollection<AlunoHistorico> Historico { get; protected set; }
         public ValidationResult ResultadoValidacao { get; private set; }
 
         public void AdicionarHistorico(AlunoHistorico alunoHistorico) => Historico.Add(alunoHistorico);
-
 
         public bool IsValid
         {

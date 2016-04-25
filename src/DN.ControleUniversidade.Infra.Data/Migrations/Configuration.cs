@@ -18,7 +18,7 @@ namespace DN.ControleUniversidade.Infra.Data.Migrations
             if (!context.TiposCurso.Any(x => x.Descricao == "Bacharelado"))
             {
                 context.TiposCurso.Add(new TipoCurso("Bacharelado", true));
-                context.TiposCurso.Add(new TipoCurso("Tecnológico", true));
+                context.TiposCurso.Add(new TipoCurso("Tecnólogo", true));
                 context.TiposCurso.Add(new TipoCurso("Técnico", true));
                 context.SaveChanges();
             }

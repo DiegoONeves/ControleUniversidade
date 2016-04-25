@@ -1,10 +1,5 @@
 ﻿using DN.ControleUniversidade.Domain.Entities;
-using System;
-using System.Collections.Generic;
 using System.Data.Entity.ModelConfiguration;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DN.ControleUniversidade.Infra.Data.EntityConfig
 {
@@ -29,6 +24,12 @@ namespace DN.ControleUniversidade.Infra.Data.EntityConfig
 
             Property(x => x.DataCadastro)
                .IsRequired();
+
+            Property(x => x.DataNascimento)
+                .IsRequired();
+
+            Property(x => x.DataAtualizacao)
+                .IsOptional();
         }
     }
 }

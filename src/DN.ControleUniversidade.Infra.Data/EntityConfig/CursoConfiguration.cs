@@ -7,6 +7,7 @@ namespace DN.ControleUniversidade.Infra.Data.EntityConfig
     {
         public CursoConfiguration()
         {
+            ToTable("Curso");
             HasKey(x => x.CursoId);
 
             Property(x => x.Nome)
@@ -15,6 +16,9 @@ namespace DN.ControleUniversidade.Infra.Data.EntityConfig
 
             Property(x => x.DataCadastro)
                 .IsRequired();
+
+            Property(x => x.DataAtualizacao)
+                .IsOptional();
 
             HasRequired(x => x.TipoCurso)
              .WithMany(x => x.CursoLista)
