@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.40629.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0 - Presentation", "0 - Presentation", "{257EBF3B-768C-46FB-AF94-B986131277F7}"
 EndProject
@@ -28,6 +28,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DN.ControleUniversidade.Infra.CrossCutting.IoC", "src\DN.ControleUniversidade.Infra.CrossCutting.IoC\DN.ControleUniversidade.Infra.CrossCutting.IoC.csproj", "{B84137EB-9FDE-4353-85DD-6E88D0D2D7ED}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DN.ControleUniversidade.Infra.CrossCutting.Filters", "src\DN.ControleUniversidade.Infra.CrossCutting.Filters\DN.ControleUniversidade.Infra.CrossCutting.Filters.csproj", "{4DD49AF2-3808-4587-B4C5-956AE5D6EEDD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DN.ControleUniversidade.Infra.CrossCutting.Common", "src\DN.ControleUniversidade.Infra.CrossCutting.Common\DN.ControleUniversidade.Infra.CrossCutting.Common.csproj", "{C7149411-B263-4589-930C-B4D1E86134F0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,6 +65,10 @@ Global
 		{4DD49AF2-3808-4587-B4C5-956AE5D6EEDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4DD49AF2-3808-4587-B4C5-956AE5D6EEDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4DD49AF2-3808-4587-B4C5-956AE5D6EEDD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C7149411-B263-4589-930C-B4D1E86134F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7149411-B263-4589-930C-B4D1E86134F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7149411-B263-4589-930C-B4D1E86134F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7149411-B263-4589-930C-B4D1E86134F0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -77,5 +83,6 @@ Global
 		{F91BEBB5-3BDF-4C10-AF18-BB07948B2305} = {EB365B41-E61A-4E57-B9B1-2655B9FA4752}
 		{B84137EB-9FDE-4353-85DD-6E88D0D2D7ED} = {8F6F80F3-59DA-49F0-9926-393BB366DFFF}
 		{4DD49AF2-3808-4587-B4C5-956AE5D6EEDD} = {8F6F80F3-59DA-49F0-9926-393BB366DFFF}
+		{C7149411-B263-4589-930C-B4D1E86134F0} = {8F6F80F3-59DA-49F0-9926-393BB366DFFF}
 	EndGlobalSection
 EndGlobal

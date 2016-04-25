@@ -34,9 +34,13 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\Aluno\Aluno.cs" />
+    <Compile Include="Entities\Aluno\AlunoHistorico.cs" />
+    <Compile Include="Entities\Usuario\Usuario.cs" />
+    <Compile Include="Interfaces\Repositories\IAlunoRepository.cs" />
     <Compile Include="Interfaces\Repositories\ITipoCursoRepository.cs" />
     <Compile Include="Interfaces\Services\ITipoCursoService.cs" />
-    <Compile Include="Entities\Curso.cs" />
+    <Compile Include="Entities\Curso\Curso.cs" />
     <Compile Include="Interfaces\Repositories\ICursoRepository.cs" />
     <Compile Include="Interfaces\Repositories\IRepositoryBase.cs" />
     <Compile Include="Interfaces\Services\ICursoService.cs" />
@@ -44,19 +48,32 @@
     <Compile Include="Interfaces\Validation\IFiscal.cs" />
     <Compile Include="Interfaces\Validation\IRegra.cs" />
     <Compile Include="Interfaces\Validation\ISelfValidator.cs" />
-    <Compile Include="Entities\TipoCurso.cs" />
+    <Compile Include="Entities\Curso\TipoCurso.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\CursoService.cs" />
     <Compile Include="Services\TipoCursoService.cs" />
+    <Compile Include="Specification\AlunoSpecification\AlunoDeveSerMaiorDeIdadeSpecificiation.cs" />
+    <Compile Include="Specification\AlunoSpecification\CPFAlunoDeveSerValidoSpecification.cs" />
+    <Compile Include="Specification\AlunoSpecification\CPFDeveSerUnicoSpecification.cs" />
+    <Compile Include="Specification\AlunoSpecification\EmailAlunoDeveSerUnicoSpecification.cs" />
+    <Compile Include="Specification\AlunoSpecification\NomeDeveTerEntre3E50CaracteresSpecification.cs" />
     <Compile Include="Specification\CursoSpecification\PossuiMesmoNomeParaMesmoIdSpecification.cs" />
     <Compile Include="Specification\CursoSpecification\NomeDeveSerUnicaSpecification.cs" />
     <Compile Include="Specification\CursoSpecification\NomeEstaValidaSpecification.cs" />
+    <Compile Include="Specification\AlunoSpecification\EmailAlunoDeveSerValidoSpecification.cs" />
+    <Compile Include="Specification\AlunoSpecification\SenhaAlunoDeveTerEntre6E20CaracteresSpecification.cs" />
+    <Compile Include="Validation\AlunoValidation\AlunoEstaAptoParaCadastroValidation.cs" />
+    <Compile Include="Validation\AlunoValidation\AlunoEstaConsistenteParaCadastroValidation.cs" />
+    <Compile Include="Validation\UsuarioValidation\EmailValidation.cs" />
     <Compile Include="Validation\Base\FiscalBase.cs" />
     <Compile Include="Validation\CursoValidation\CursoEstaAptoParaAtualizacaoValidation.cs" />
     <Compile Include="Validation\CursoValidation\CursoEstaAptoParaCadastroValidation.cs" />
     <Compile Include="Validation\CursoValidation\CursoEstaConsistenteValidation.cs" />
     <Compile Include="Validation\CursoValidation\CursoEstaConsistenteParaAtualizarValidation.cs" />
+    <Compile Include="Validation\DocumentoValidation\CPFValidation.cs" />
     <Compile Include="Validation\Regra.cs" />
+    <Compile Include="ValueObjects\SituacaoAluno.cs" />
+    <Compile Include="ValueObjects\TipoUsuario.cs" />
     <Compile Include="ValueObjects\ValidationError.cs" />
     <Compile Include="ValueObjects\ValidationResult.cs" />
   </ItemGroup>

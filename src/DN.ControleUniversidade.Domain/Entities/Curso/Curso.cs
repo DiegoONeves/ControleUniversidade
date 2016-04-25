@@ -17,21 +17,6 @@ namespace DN.ControleUniversidade.Domain.Entities
             TipoCurso = tipoCurso;
             Ativo = ativo;
             DataCadastro = DateTime.Now;
-            DataAtualizacao = DateTime.Now;
-
-
-            var fiscal = new CursoEstaAptoParaCadastroValidation();
-            ResultadoValidacao = fiscal.Validar(this);
-        }
-
-        public Curso(Guid id, string nome, bool ativo, TipoCurso tipoCurso)
-        {
-            CursoId = id;
-            Nome = nome;
-            TipoCurso = tipoCurso;
-            Ativo = ativo;
-            DataCadastro = DateTime.Now;
-
 
             var fiscal = new CursoEstaAptoParaCadastroValidation();
             ResultadoValidacao = fiscal.Validar(this);

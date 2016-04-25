@@ -21,6 +21,9 @@ namespace DN.ControleUniversidade.Infra.Data.Context
 
         public IDbSet<TipoCurso> TiposCurso { get; set; }
         public IDbSet<Curso> Cursos { get; set; }
+        public IDbSet<Usuario> Usuarios { get; set; }
+        public IDbSet<Aluno> Alunos { get; set; }
+        public IDbSet<AlunoHistorico> HistoricoAluno { get; set; }
 
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -43,6 +46,9 @@ namespace DN.ControleUniversidade.Infra.Data.Context
 
             modelBuilder.Configurations.Add(new TipoCursoConfiguration());
             modelBuilder.Configurations.Add(new CursoConfiguration());
+            modelBuilder.Configurations.Add(new UsuarioConfiguration());
+            modelBuilder.Configurations.Add(new AlunoConfiguration());
+            modelBuilder.Configurations.Add(new AlunoHistoricoConfiguration());
 
             base.OnModelCreating(modelBuilder);
         }
