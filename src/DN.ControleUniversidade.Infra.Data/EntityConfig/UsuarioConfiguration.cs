@@ -30,7 +30,7 @@ namespace DN.ControleUniversidade.Infra.Data.EntityConfig
             Property(x => x.SenhaCriptografada).HasColumnName("Senha")
                 .IsRequired()
                 .HasMaxLength(32)
-                .IsFixedLength(); ;
+                .IsFixedLength();
 
 
         }
