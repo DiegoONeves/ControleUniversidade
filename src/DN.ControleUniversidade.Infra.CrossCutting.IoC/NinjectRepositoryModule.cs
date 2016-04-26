@@ -11,6 +11,7 @@ namespace DN.ControleUniversidade.Infra.CrossCutting.IoC
             Bind(typeof(IRepositoryBase<>)).To(typeof(RepositoryBase<,>));
             Bind<ICursoRepository>().To<CursoRepository>();
             Bind<ITipoCursoRepository>().To<TipoCursoRepository>();
+            Bind<IAlunoRepository>().To<AlunoRepository>();
         }
     }
 }

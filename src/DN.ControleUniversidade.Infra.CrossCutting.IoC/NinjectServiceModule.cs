@@ -10,6 +10,7 @@ namespace DN.ControleUniversidade.Infra.CrossCutting.IoC
         {
             Bind<ITipoCursoService>().To<TipoCursoService>();
             Bind<ICursoService>().To<CursoService>();
+            Bind<IAlunoService>().To<AlunoService>();
         }
     }
 }

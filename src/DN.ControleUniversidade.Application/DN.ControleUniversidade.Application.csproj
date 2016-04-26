@@ -31,8 +31,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="AlunoAppService.cs" />
     <Compile Include="AppServiceBase.cs" />
     <Compile Include="CursoAppService.cs" />
+    <Compile Include="Interfaces\IAlunoAppService.cs" />
     <Compile Include="Interfaces\IAppServiceBase.cs" />
     <Compile Include="Interfaces\ICursoAppService.cs" />
     <Compile Include="Interfaces\ITipoCursoAppService.cs" />

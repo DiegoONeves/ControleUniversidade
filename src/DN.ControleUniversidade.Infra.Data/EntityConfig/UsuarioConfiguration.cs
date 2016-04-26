@@ -23,13 +23,16 @@ namespace DN.ControleUniversidade.Infra.Data.EntityConfig
                     IsUnique = true
                 }))
                 .IsRequired();
-            Property(x => x.Senha)
-                .IsRequired()
-                .HasMaxLength(32)
-                .IsFixedLength();
+            Ignore(x => x.Senha);
             Property(x => x.TipoUsuario)
                 .IsRequired();
-            Ignore(x => x.SenhaCriptografada);
+
+            Property(x => x.SenhaCriptografada).HasColumnName("Senha")
+                .IsRequired()
+                .HasMaxLength(32)
+                .IsFixedLength(); ;
+
+
         }
     }
 }

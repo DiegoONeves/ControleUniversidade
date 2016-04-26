@@ -39,6 +39,7 @@
     <Compile Include="Entities\Usuario\Usuario.cs" />
     <Compile Include="Interfaces\Repositories\IAlunoRepository.cs" />
     <Compile Include="Interfaces\Repositories\ITipoCursoRepository.cs" />
+    <Compile Include="Interfaces\Services\IAlunoService.cs" />
     <Compile Include="Interfaces\Services\ITipoCursoService.cs" />
     <Compile Include="Entities\Curso\Curso.cs" />
     <Compile Include="Interfaces\Repositories\ICursoRepository.cs" />
@@ -50,6 +51,7 @@
     <Compile Include="Interfaces\Validation\ISelfValidator.cs" />
     <Compile Include="Entities\Curso\TipoCurso.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\AlunoService.cs" />
     <Compile Include="Services\CursoService.cs" />
     <Compile Include="Services\TipoCursoService.cs" />
     <Compile Include="Specification\AlunoSpecification\AlunoDeveSerMaiorDeIdadeSpecificiation.cs" />

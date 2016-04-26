@@ -29,6 +29,8 @@ namespace DN.ControleUniversidade.Domain.Entities
         public TipoUsuario TipoUsuario { get; protected set; }
         public ICollection<Aluno> UsuariosAlunos { get; protected set; }
 
+
+
         public override string ToString()
         {
             return Email;

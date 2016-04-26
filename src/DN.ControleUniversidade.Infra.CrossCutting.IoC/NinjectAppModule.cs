@@ -15,6 +15,7 @@ namespace DN.ControleUniversidade.Infra.CrossCutting.IoC
         {
             Bind<ITipoCursoAppService>().To<TipoCursoAppService>();
             Bind<ICursoAppService>().To<CursoAppService>();
+            Bind<IAlunoAppService>().To<AlunoAppService>();
         }
     }
 }

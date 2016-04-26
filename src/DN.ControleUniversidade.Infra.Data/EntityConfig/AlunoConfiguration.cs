@@ -30,6 +30,8 @@ namespace DN.ControleUniversidade.Infra.Data.EntityConfig
 
             Property(x => x.DataAtualizacao)
                 .IsOptional();
+
+            Ignore(x => x.ResultadoValidacao);
         }
     }
 }
