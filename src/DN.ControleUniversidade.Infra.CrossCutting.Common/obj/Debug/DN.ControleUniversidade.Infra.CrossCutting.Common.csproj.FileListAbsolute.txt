@@ -1,0 +1,5 @@
+C:\Users\Diego Neves\Desktop\GitHub\ControleUniversidade\src\DN.ControleUniversidade.Infra.CrossCutting.Common\bin\Debug\DN.ControleUniversidade.Infra.CrossCutting.Common.dll
+C:\Users\Diego Neves\Desktop\GitHub\ControleUniversidade\src\DN.ControleUniversidade.Infra.CrossCutting.Common\bin\Debug\DN.ControleUniversidade.Infra.CrossCutting.Common.pdb
+C:\Users\Diego Neves\Desktop\GitHub\ControleUniversidade\src\DN.ControleUniversidade.Infra.CrossCutting.Common\obj\Debug\DN.ControleUniversidade.Infra.CrossCutting.Common.csprojResolveAssemblyReference.cache
+C:\Users\Diego Neves\Desktop\GitHub\ControleUniversidade\src\DN.ControleUniversidade.Infra.CrossCutting.Common\obj\Debug\DN.ControleUniversidade.Infra.CrossCutting.Common.dll
+C:\Users\Diego Neves\Desktop\GitHub\ControleUniversidade\src\DN.ControleUniversidade.Infra.CrossCutting.Common\obj\Debug\DN.ControleUniversidade.Infra.CrossCutting.Common.pdb

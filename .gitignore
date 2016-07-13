@@ -3,3 +3,7 @@
 ################################################################################
 
 /packages
+/src/DN.ControleUniversidade.Application/obj/Debug
+/src/DN.ControleUniversidade.Application/bin/Debug
+/tests/DN.ControleUniversidade.Domain.Tests/bin/Debug
+/tests/DN.ControleUniversidade.Domain.Tests/obj/Debug

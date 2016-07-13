@@ -1,17 +1,12 @@
 ﻿using DN.ControleUniversidade.Application.Interfaces;
-using DN.ControleUniversidade.Infra.Data.Context;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using DN.ControleUniversidade.Application.Validation;
 using DN.ControleUniversidade.Application.ViewModels.Aluno;
+using DN.ControleUniversidade.Domain.Factories;
 using DN.ControleUniversidade.Domain.Interfaces.Services;
-using DN.ControleUniversidade.Domain.Entities;
-using DN.ControleUniversidade.Infra.CrossCutting.Common.Security;
-using DN.ControleUniversidade.Domain.ValueObjects;
 using DN.ControleUniversidade.Infra.CrossCutting.Common.HelperTools;
+using DN.ControleUniversidade.Infra.CrossCutting.Common.Security;
+using DN.ControleUniversidade.Infra.Data.Context;
+using System;
 
 namespace DN.ControleUniversidade.Application
 {
@@ -27,9 +22,7 @@ namespace DN.ControleUniversidade.Application
         {
             BeginTransaction();
 
-            var usuario = new Usuario(novoAlunoViewModel.Email, novoAlunoViewModel.Senha, EncryptHelper.Encrypt(novoAlunoViewModel.Senha), TipoUsuario.Aluno);
-            var aluno = new Aluno(novoAlunoViewModel.Nome, CaracteresHelper.SomenteNumeros(novoAlunoViewModel.CPF), novoAlunoViewModel.DataNascimento, novoAlunoViewModel.Ativo, usuario);
-            aluno.AdicionarHistorico(new AlunoHistorico(aluno, SituacaoAluno.Cadastrado));
+            var aluno = AlunoFactory.CriarAlunoParaCadastro(novoAlunoViewModel.Email, novoAlunoViewModel.Senha, EncryptHelper.Encrypt(novoAlunoViewModel.Senha), novoAlunoViewModel.Nome, CaracteresHelper.SomenteNumeros(novoAlunoViewModel.CPF), novoAlunoViewModel.DataNascimento, novoAlunoViewModel.Ativo);
 
             var resultadoValidacao = DomainToApplicationResult(_alunoService.AdicionarNovoAluno(aluno));
 
@@ -41,7 +34,8 @@ namespace DN.ControleUniversidade.Application
 
         public void Dispose()
         {
-            throw new NotImplementedException();
+            _alunoService.Dispose();
+            GC.SuppressFinalize(this);
         }
     }
 }

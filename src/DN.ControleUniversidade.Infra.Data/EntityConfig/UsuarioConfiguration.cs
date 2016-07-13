@@ -27,7 +27,8 @@ namespace DN.ControleUniversidade.Infra.Data.EntityConfig
             Property(x => x.TipoUsuario)
                 .IsRequired();
 
-            Property(x => x.SenhaCriptografada).HasColumnName("Senha")
+            Property(x => x.SenhaCriptografada)
+                .HasColumnName("Senha")
                 .IsRequired()
                 .HasMaxLength(32)
                 .IsFixedLength();

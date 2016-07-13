@@ -1,0 +1,5 @@
+C:\Users\Diego Neves\Desktop\GitHub\ControleUniversidade\src\DN.ControleUniversidade.Infra.CrossCutting.Filters\bin\Debug\DN.ControleUniversidade.Infra.CrossCutting.Filters.dll
+C:\Users\Diego Neves\Desktop\GitHub\ControleUniversidade\src\DN.ControleUniversidade.Infra.CrossCutting.Filters\bin\Debug\DN.ControleUniversidade.Infra.CrossCutting.Filters.pdb
+C:\Users\Diego Neves\Desktop\GitHub\ControleUniversidade\src\DN.ControleUniversidade.Infra.CrossCutting.Filters\obj\Debug\DN.ControleUniversidade.Infra.CrossCutting.Filters.csprojResolveAssemblyReference.cache
+C:\Users\Diego Neves\Desktop\GitHub\ControleUniversidade\src\DN.ControleUniversidade.Infra.CrossCutting.Filters\obj\Debug\DN.ControleUniversidade.Infra.CrossCutting.Filters.dll
+C:\Users\Diego Neves\Desktop\GitHub\ControleUniversidade\src\DN.ControleUniversidade.Infra.CrossCutting.Filters\obj\Debug\DN.ControleUniversidade.Infra.CrossCutting.Filters.pdb

@@ -37,6 +37,7 @@
     <Compile Include="Entities\Aluno\Aluno.cs" />
     <Compile Include="Entities\Aluno\AlunoHistorico.cs" />
     <Compile Include="Entities\Usuario\Usuario.cs" />
+    <Compile Include="Factories\AlunoFactory.cs" />
     <Compile Include="Interfaces\Repositories\IAlunoRepository.cs" />
     <Compile Include="Interfaces\Repositories\ITipoCursoRepository.cs" />
     <Compile Include="Interfaces\Services\IAlunoService.cs" />
