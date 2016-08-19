@@ -43,7 +43,8 @@ namespace DN.ControleUniversidade.Domain.Services
 
         public void Dispose()
         {
-            throw new NotImplementedException();
+            _alunoRepository.Dispose();
+            GC.SuppressFinalize(this);
         }
     }
 }
