@@ -2,7 +2,6 @@
 using DN.ControleUniversidade.Application.Validation;
 using DN.ControleUniversidade.Domain.ValueObjects;
 using DN.ControleUniversidade.Infra.Data.Interfaces;
-using Microsoft.Practices.ServiceLocation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,12 +10,15 @@ using System.Threading.Tasks;
 
 namespace DN.ControleUniversidade.Application
 {
-    public class AppServiceBase<TContext> : IAppServiceBase<TContext> where TContext : IDbContext, new()
+    public class AppServiceBase : IAppServiceBase
     {
-        private IUnitOfWork<TContext> _uow;
+        private IUnitOfWork _uow;
+        public AppServiceBase(IUnitOfWork uow)
+        {
+            _uow = uow;
+        }
         public void BeginTransaction()
         {
-            _uow = ServiceLocator.Current.GetInstance<IUnitOfWork<TContext>>();
             _uow.BeginTransaction();
         }
 

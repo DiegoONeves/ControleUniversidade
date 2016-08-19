@@ -1,19 +1,17 @@
 ﻿using DN.ControleUniversidade.Infra.Data.Context;
 using DN.ControleUniversidade.Infra.Data.Interfaces;
-using Microsoft.Practices.ServiceLocation;
 using System;
 
 namespace DN.ControleUniversidade.Infra.Data.UnitOfWork
 {
-    public class UnitOfWork<TContext> : IUnitOfWork<TContext> where TContext: IDbContext, new()
+    public class EFUnitOfWork : IUnitOfWork
     {
-        private readonly IDbContext _dbContext;
-        private readonly ContextManager<TContext> _contextManager = ServiceLocator.Current.GetInstance<IContextManager<TContext>>() as ContextManager<TContext>;
+        private readonly UniversidadeContext _dbContext;
         private bool _disposed;
 
-        public UnitOfWork()
+        public EFUnitOfWork(UniversidadeContext dbContext)
         {
-            _dbContext = _contextManager.GetContext();
+            _dbContext = dbContext;
         }
         public void BeginTransaction()
         {

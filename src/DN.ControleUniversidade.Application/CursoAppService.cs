@@ -9,15 +9,17 @@ using System.Text;
 using System.Threading.Tasks;
 using DN.ControleUniversidade.Application.ViewModels.Curso;
 using DN.ControleUniversidade.Domain.Entities;
+using DN.ControleUniversidade.Infra.Data.Interfaces;
 
 namespace DN.ControleUniversidade.Application
 {
-    public class CursoAppService : AppServiceBase<UniversidadeContext>, ICursoAppService
+    public class CursoAppService : AppServiceBase, ICursoAppService
     {
         private readonly ICursoService _cursoService;
         private readonly ITipoCursoService _tipoCursoService;
 
-        public CursoAppService(ICursoService cursoService, ITipoCursoService tipoCursoService)
+        public CursoAppService(ICursoService cursoService, ITipoCursoService tipoCursoService, IUnitOfWork uow)
+            :base(uow)
         {
             _cursoService = cursoService;
             _tipoCursoService = tipoCursoService;

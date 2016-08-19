@@ -5,16 +5,17 @@ using DN.ControleUniversidade.Domain.Factories;
 using DN.ControleUniversidade.Domain.Interfaces.Services;
 using DN.ControleUniversidade.Infra.CrossCutting.Common.HelperTools;
 using DN.ControleUniversidade.Infra.CrossCutting.Common.Security;
-using DN.ControleUniversidade.Infra.Data.Context;
+using DN.ControleUniversidade.Infra.Data.Interfaces;
 using System;
 
 namespace DN.ControleUniversidade.Application
 {
-    public class AlunoAppService : AppServiceBase<UniversidadeContext>, IAlunoAppService
+    public class AlunoAppService : AppServiceBase, IAlunoAppService
     {
         private readonly IAlunoService _alunoService;
 
-        public AlunoAppService(IAlunoService alunoService)
+        public AlunoAppService(IAlunoService alunoService, IUnitOfWork uow)
+            :base(uow)
         {
             _alunoService = alunoService;
         }

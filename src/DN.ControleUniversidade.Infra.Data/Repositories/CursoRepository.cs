@@ -10,8 +10,13 @@ using System.Data.Entity;
 
 namespace DN.ControleUniversidade.Infra.Data.Repositories
 {
-    public class CursoRepository : RepositoryBase<Curso, UniversidadeContext>, ICursoRepository
+    public class CursoRepository : RepositoryBase<Curso>, ICursoRepository
     {
+        public CursoRepository(UniversidadeContext dbContext)
+            : base(dbContext)
+        {
+
+        }
         public IEnumerable<Curso> ObterGrid()
         {
             return DbSet

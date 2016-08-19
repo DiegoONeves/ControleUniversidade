@@ -1,20 +1,18 @@
 ﻿using DN.ControleUniversidade.Application.Interfaces;
+using DN.ControleUniversidade.Application.ViewModels.TipoCurso;
 using DN.ControleUniversidade.Domain.Interfaces.Services;
-using DN.ControleUniversidade.Infra.Data.Context;
+using DN.ControleUniversidade.Infra.Data.Interfaces;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DN.ControleUniversidade.Application.ViewModels.TipoCurso;
 
 namespace DN.ControleUniversidade.Application
 {
-    public class TipoCursoAppService : AppServiceBase<UniversidadeContext>, ITipoCursoAppService
+    public class TipoCursoAppService : AppServiceBase, ITipoCursoAppService
     {
         private readonly ITipoCursoService _tipoCursoService;
 
-        public TipoCursoAppService(ITipoCursoService tipoCursoService)
+        public TipoCursoAppService(ITipoCursoService tipoCursoService, IUnitOfWork uow)
+            :base(uow)
         {
             _tipoCursoService = tipoCursoService;
         }

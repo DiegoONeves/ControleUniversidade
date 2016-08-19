@@ -9,8 +9,14 @@ using System.Threading.Tasks;
 
 namespace DN.ControleUniversidade.Infra.Data.Repositories
 {
-    public class TipoCursoRepository : RepositoryBase<TipoCurso, UniversidadeContext>, ITipoCursoRepository
+    public class TipoCursoRepository : RepositoryBase<TipoCurso>, ITipoCursoRepository
     {
+        public TipoCursoRepository(UniversidadeContext dbContext)
+            : base(dbContext)
+        {
+
+        }
+
         public IEnumerable<TipoCurso> Listar()
         {
             return GetAllReadOnly();

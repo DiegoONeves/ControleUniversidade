@@ -1,12 +1,9 @@
-﻿using System;
-using System.Linq;
-using System.Text;
-using System.Collections.Generic;
+﻿using DN.ControleUniversidade.Domain.Entities;
+using DN.ControleUniversidade.Domain.Interfaces.Repositories;
+using DN.ControleUniversidade.Domain.Validation.CursoValidation;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Rhino.Mocks;
-using DN.ControleUniversidade.Domain.Interfaces.Repositories;
-using DN.ControleUniversidade.Domain.Entities;
-using DN.ControleUniversidade.Domain.Validation.CursoValidation;
+using System.Linq;
 
 namespace DN.ControleUniversidade.Domain.Tests.Validations
 {

@@ -4,12 +4,9 @@ C:\Users\Diego Neves\Desktop\GitHub\ControleUniversidade\src\DN.ControleUniversi
 C:\Users\Diego Neves\Desktop\GitHub\ControleUniversidade\src\DN.ControleUniversidade.Infra.Data\bin\Debug\DN.ControleUniversidade.Domain.dll
 C:\Users\Diego Neves\Desktop\GitHub\ControleUniversidade\src\DN.ControleUniversidade.Infra.Data\bin\Debug\EntityFramework.dll
 C:\Users\Diego Neves\Desktop\GitHub\ControleUniversidade\src\DN.ControleUniversidade.Infra.Data\bin\Debug\EntityFramework.SqlServer.dll
-C:\Users\Diego Neves\Desktop\GitHub\ControleUniversidade\src\DN.ControleUniversidade.Infra.Data\bin\Debug\Microsoft.Practices.ServiceLocation.dll
 C:\Users\Diego Neves\Desktop\GitHub\ControleUniversidade\src\DN.ControleUniversidade.Infra.Data\bin\Debug\DN.ControleUniversidade.Domain.pdb
 C:\Users\Diego Neves\Desktop\GitHub\ControleUniversidade\src\DN.ControleUniversidade.Infra.Data\bin\Debug\EntityFramework.xml
 C:\Users\Diego Neves\Desktop\GitHub\ControleUniversidade\src\DN.ControleUniversidade.Infra.Data\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\Diego Neves\Desktop\GitHub\ControleUniversidade\src\DN.ControleUniversidade.Infra.Data\bin\Debug\Microsoft.Practices.ServiceLocation.pdb
-C:\Users\Diego Neves\Desktop\GitHub\ControleUniversidade\src\DN.ControleUniversidade.Infra.Data\bin\Debug\Microsoft.Practices.ServiceLocation.xml
 C:\Users\Diego Neves\Desktop\GitHub\ControleUniversidade\src\DN.ControleUniversidade.Infra.Data\obj\Debug\DN.ControleUniversidade.Infra.Data.csprojResolveAssemblyReference.cache
 C:\Users\Diego Neves\Desktop\GitHub\ControleUniversidade\src\DN.ControleUniversidade.Infra.Data\obj\Debug\DN.ControleUniversidade.Infra.Data.dll
 C:\Users\Diego Neves\Desktop\GitHub\ControleUniversidade\src\DN.ControleUniversidade.Infra.Data\obj\Debug\DN.ControleUniversidade.Infra.Data.pdb

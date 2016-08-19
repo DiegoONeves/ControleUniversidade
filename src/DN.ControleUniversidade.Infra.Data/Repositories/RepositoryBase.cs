@@ -1,7 +1,5 @@
 ﻿using DN.ControleUniversidade.Domain.Interfaces.Repositories;
 using DN.ControleUniversidade.Infra.Data.Context;
-using DN.ControleUniversidade.Infra.Data.Interfaces;
-using Microsoft.Practices.ServiceLocation;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -10,18 +8,15 @@ using System.Linq.Expressions;
 
 namespace DN.ControleUniversidade.Infra.Data.Repositories
 {
-    public class RepositoryBase<TEntity, TContext> : IRepositoryBase<TEntity>
-        where TEntity : class
-        where TContext :IDbContext, new() 
+    public class RepositoryBase<TEntity> : IRepositoryBase<TEntity> where TEntity : class
     {
-        private readonly ContextManager<TContext> _contextManager = ServiceLocator.Current.GetInstance<IContextManager<TContext>>() as ContextManager<TContext>;
 
         protected IDbSet<TEntity> DbSet;
-        protected readonly IDbContext Context;
+        protected readonly UniversidadeContext Context;
 
-        public RepositoryBase()
+        public RepositoryBase(UniversidadeContext dbContext)
         {
-            Context = _contextManager.GetContext();
+            Context = dbContext;
             DbSet = Context.Set<TEntity>();
         }
         public void Add(TEntity obj)

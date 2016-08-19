@@ -1,16 +1,11 @@
 ﻿using DN.ControleUniversidade.Domain.Entities;
 using DN.ControleUniversidade.Infra.Data.EntityConfig;
-using System;
-using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DN.ControleUniversidade.Infra.Data.Context
 {
-    public class UniversidadeContext: BaseDbContext
+    public class UniversidadeContext: DbContext
     {
         public UniversidadeContext()
             : base("UniversidadeContext")
